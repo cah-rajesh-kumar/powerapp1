@@ -1,0 +1,1425 @@
+ViewInventoryHistory As screen:
+    Fill: =Color.White
+    LoadingSpinnerColor: =App.Theme.Colors.Primary
+    OnVisible: |
+        =ClearCollect(
+            varCurrentInventoryTab,
+            {
+                id: 1,
+                name: "Supplies"
+            },
+            {
+                id: 2,
+                name: "Notes & Images"
+            }
+        );
+        Reset(txtNotes);
+        Set(varCheckBox,true);
+        Set(varCheckBox,false);
+        Set(varCapuredCamera,Blank());
+        Set(showImageUpload,false);
+        Set(varOpenViewImage,false);
+        Set(varSupplieImage,Blank());
+        Set(
+            previousNote,
+            Blank()
+        );
+        Set(
+            viewVarCurrentSelectedInventoryTab,
+            1
+        );
+        Set(
+            todayVisitInfo,
+            Blank()
+        );
+        Set(
+            previousPatientItems,
+            Blank()
+        );
+        Set(
+            previousNote,
+            LookUp(
+                PatientVisits,
+                Title = selectedItem.Title && VisitDate = YesterdayDate
+            )
+        );
+        Set(
+            todayVisitInfo,
+            LookUp(
+                PatientVisits,
+                Title = selectedItem.Title && VisitDate = todayDate
+            )
+        );
+        Set(
+            previousPatientItems,
+            Filter(
+                PatientItems,
+                Title = selectedItem.Title && VisitDate = YesterdayDate
+            )
+        );
+
+    InventoryContainerView_1 As groupContainer.verticalAutoLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Height: =Parent.Height
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Width: =Parent.Width
+        ZIndex: =1
+
+        InventoryBorder_1 As groupContainer.verticalAutoLayoutContainer:
+            Fill: =gblAppColors.pantone.rgba
+            FillPortions: =0
+            Height: =10
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =112
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            Width: =Parent.Width
+            ZIndex: =1
+
+        InventoryHeader_1 As groupContainer.verticalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.Start
+            DropShadow: =DropShadow.Light
+            FillPortions: =0
+            Height: =lblPatientInventoryCheckList_1.Height+30
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutGap: =10
+            LayoutJustifyContent: =LayoutJustifyContent.Center
+            LayoutMinHeight: =112
+            LayoutMinWidth: =Parent.Width
+            LayoutMode: =LayoutMode.Auto
+            Width: =Parent.Width
+            ZIndex: =2
+
+            conInventoryHeaderWrapper_1 As groupContainer.manualLayoutContainer:
+                DropShadow: =DropShadow.Light
+                Height: =lblPatientInventoryCheckList_1.Height
+                LayoutMinHeight: =50
+                LayoutMinWidth: =250
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                ZIndex: =3
+
+                btnBack_1 As button:
+                    BorderColor: =App.Theme.Colors.Primary
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =0
+                    Color: =
+                    DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Font: =App.Theme.Font
+                    FontWeight: =FontWeight.Semibold
+                    Height: =35
+                    HoverBorderColor: =App.Theme.Colors.Darker10
+                    HoverColor: =RGBA(0, 0, 0, 1)
+                    HoverFill: =ColorFade(Self.Fill, -20%)
+                    OnSelect: =Navigate(HomeScreen,ScreenTransition.Fade)
+                    PressedBorderColor: =App.Theme.Colors.Darker40
+                    PressedColor: =Self.Color
+                    PressedFill: =App.Theme.Colors.Darker40
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Size: =15
+                    Text: ="Back"
+                    Width: =75
+                    X: =10
+                    Y: =(Parent.Height-Self.Height)/2
+                    ZIndex: =1
+
+                lblPatientInventoryCheckList_1 As label:
+                    Align: =Align.Center
+                    AutoHeight: =true
+                    BorderColor: =App.Theme.Colors.Darker40
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =App.Theme.Font
+                    FontWeight: =FontWeight.Bold
+                    Height: =70
+                    Size: =gblAppFonts.extralarge
+                    Text: ="Patient Inventory Checklist"
+                    Width: |
+                        =Parent.Width-btnBack_1.Width-40
+                    X: =(Parent.Width-Self.Width)/2
+                    Y: =(Parent.Height-Self.Height)/2
+                    ZIndex: =2
+
+        InventoryMainContainer_1 As groupContainer.verticalAutoLayoutContainer:
+            BorderStyle: =BorderStyle.None
+            Height: =225
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =112
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =3
+
+            PatientInfoHeader_1 As groupContainer.verticalAutoLayoutContainer:
+                Fill: =gblAppColors.pantoneWarmGray1.rgba
+                FillPortions: =0
+                Height: =lblPatientInfo_1.Height
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMinHeight: =112
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                ZIndex: =1
+
+                lblPatientInfo_1 As label:
+                    AutoHeight: =true
+                    BorderColor: =App.Theme.Colors.Darker40
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =App.Theme.Font
+                    FontWeight: =FontWeight.Bold
+                    Height: =70
+                    LayoutMinHeight: =70
+                    LayoutMinWidth: =560
+                    PaddingBottom: =10
+                    PaddingLeft: =25
+                    PaddingRight: =25
+                    PaddingTop: =10
+                    Size: =gblAppFonts.normal
+                    Text: ="Patient Information"
+                    Width: =Parent.Width-imgAddBtn_9.Width
+                    ZIndex: =1
+
+                imgAddBtn_9 As button:
+                    BorderColor: =
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =0
+                    DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    Fill: =gblAppColors.pantone.rgba
+                    Font: =App.Theme.Font
+                    FontWeight: =FontWeight.Semibold
+                    Height: =Parent.Height
+                    HoverBorderColor: =gblAppColors.pantone.rgba
+                    HoverColor: =RGBA(255, 255, 255, 1)
+                    HoverFill: =gblAppColors.pantone.rgba
+                    LayoutMinHeight: =70
+                    LayoutMinWidth: =280
+                    OnSelect: |
+                        =Navigate(
+                            InventoryScreen,
+                            ScreenTransition.Fade
+                        );
+                    PressedBorderColor: =gblAppColors.pantone.rgba
+                    PressedColor: =RGBA(255, 255, 255, 1)
+                    PressedFill: =gblAppColors.pantone.rgba
+                    RadiusBottomLeft: =5
+                    RadiusBottomRight: =5
+                    RadiusTopLeft: =5
+                    RadiusTopRight: =5
+                    Size: =15
+                    Text: ="Edit"
+                    Width: |
+                        =100
+                    X: =(Parent.Width-Self.Width)/2
+                    Y: =(Parent.Height-Self.Height)/2
+                    ZIndex: =2
+
+            PatientInfoContainer_1 As groupContainer.verticalAutoLayoutContainer:
+                DropShadow: =DropShadow.Light
+                FillPortions: =0
+                Height: =conExtraInfoWrapper_1.LayoutMinHeight+conPatientName_1.Height+conPatientAddress_1.Height+10
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =112
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                ZIndex: =2
+
+                conPatientName_1 As groupContainer.manualLayoutContainer:
+                    BorderStyle: =BorderStyle.None
+                    FillPortions: =0
+                    Height: =lblPatientName_1.Height
+                    LayoutMinHeight: =112
+                    LayoutMinWidth: =250
+                    ZIndex: =1
+
+                    lblPatientName_1 As label:
+                        AutoHeight: =true
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =App.Theme.Font
+                        FontWeight: =FontWeight.Semibold
+                        Height: =70
+                        PaddingBottom: =10
+                        PaddingLeft: =25
+                        PaddingRight: =25
+                        PaddingTop: =10
+                        Size: =gblAppFonts.medium
+                        Text: =selectedItem.Title
+                        Width: =Parent.Width
+                        X: |
+                            =0
+                        Y: |
+                            =0
+                        ZIndex: =1
+
+                conPatientAddress_1 As groupContainer.manualLayoutContainer:
+                    BorderStyle: =BorderStyle.None
+                    FillPortions: =0
+                    Height: =lblPatientAddrs_1.Height
+                    LayoutMinHeight: =112
+                    LayoutMinWidth: =250
+                    Visible: =If(IsBlank(lblPatientAddress.Text),false,true)
+                    ZIndex: =2
+
+                    lblPatientAddrs_1 As label:
+                        AutoHeight: =true
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =App.Theme.Font
+                        Height: =70
+                        PaddingLeft: =25
+                        PaddingRight: =25
+                        PaddingTop: =0
+                        Size: =gblAppFonts.normal
+                        Text: =selectedItem.ShippingAddressLine1 & " " & selectedItem.ShippingAddressLine2 & selectedItem.ShippingState & selectedItem.ShippingCity & selectedItem.ShippingPostalCode
+                        Visible: =If(IsBlank(Self.Text),false,true)
+                        Width: =Parent.Width
+                        X: |
+                            =0
+                        Y: |
+                            =0
+                        ZIndex: =1
+
+                conExtraInfoWrapper_1 As groupContainer.horizontalAutoLayoutContainer:
+                    Height: |-
+                        =Max(
+                            conHospitalWrapper_1.Height + conSuppliesWrapper_1.Height,
+                            conAdmission_1.Height + conLastInventory_1.Height
+                        )
+                    LayoutMinHeight: |-
+                        =Max(
+                            conHospitalWrapper_1.Height + conSuppliesWrapper_1.Height,
+                            conAdmission_1.Height + conLastInventory_1.Height
+                        )
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =3
+
+                    conExtraOne_1 As groupContainer.verticalAutoLayoutContainer:
+                        Height: =conHospitalWrapper_1.Height+conSuppliesWrapper_1.Height
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutMinHeight: =conHospitalWrapper_1.Height+conSuppliesWrapper_1.Height
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        ZIndex: =1
+
+                        conHospitalWrapper_1 As groupContainer.manualLayoutContainer:
+                            FillPortions: =0
+                            Height: =lblPatientHospital_1.Height
+                            LayoutMinHeight: =112
+                            LayoutMinWidth: =250
+                            ZIndex: =1
+
+                            lblPatientHospital_1 As label:
+                                AutoHeight: =true
+                                BorderColor: =App.Theme.Colors.Darker40
+                                Color: =RGBA(0, 0, 0, 1)
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                Font: =App.Theme.Font
+                                Height: =70
+                                PaddingLeft: =25
+                                Size: =gblAppFonts.normal
+                                Text: |-
+                                    ="Hospital : Yale"
+                                Width: =320
+                                Y: |
+                                    =0
+                                ZIndex: =1
+
+                        conSuppliesWrapper_1 As groupContainer.manualLayoutContainer:
+                            FillPortions: =0
+                            Height: =lblSupplies_1.Height
+                            LayoutMinHeight: =112
+                            LayoutMinWidth: =250
+                            ZIndex: =2
+
+                            lblSupplies_1 As label:
+                                AutoHeight: =true
+                                BorderColor: =App.Theme.Colors.Darker40
+                                Color: =RGBA(0, 0, 0, 1)
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                Font: =App.Theme.Font
+                                Height: =70
+                                PaddingLeft: =25
+                                Size: =gblAppFonts.normal
+                                Text: |-
+                                    ="Supplies Remaining : 100%"
+                                Width: =320
+                                Y: |
+                                    =0
+                                ZIndex: =1
+
+                    conExtraTwo_1 As groupContainer.verticalAutoLayoutContainer:
+                        BorderStyle: =BorderStyle.None
+                        Height: =conAdmission_1.Height+conLastInventory_1.Height
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutMinHeight: =conAdmission_1.Height+conLastInventory_1.Height
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        ZIndex: =2
+
+                        conAdmission_1 As groupContainer.manualLayoutContainer:
+                            FillPortions: =0
+                            Height: =lblAdmission_1.Height
+                            LayoutMinHeight: =112
+                            LayoutMinWidth: =250
+                            ZIndex: =2
+
+                            lblAdmission_1 As label:
+                                AutoHeight: =true
+                                BorderColor: =App.Theme.Colors.Darker40
+                                Color: =RGBA(0, 0, 0, 1)
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                Font: =App.Theme.Font
+                                Height: =70
+                                PaddingLeft: =25
+                                Size: =gblAppFonts.normal
+                                Text: |-
+                                    ="Admission Date : " & selectedItem.AdmissionDate
+                                Width: =320
+                                Y: |
+                                    =0
+                                ZIndex: =1
+
+                        conLastInventory_1 As groupContainer.manualLayoutContainer:
+                            FillPortions: =0
+                            Height: =lblLastInventory_1.Height
+                            LayoutMinHeight: =112
+                            LayoutMinWidth: =250
+                            ZIndex: =3
+
+                            lblLastInventory_1 As label:
+                                AutoHeight: =true
+                                BorderColor: =App.Theme.Colors.Darker40
+                                Color: =RGBA(0, 0, 0, 1)
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                Font: =App.Theme.Font
+                                Height: =70
+                                PaddingLeft: =25
+                                Size: =gblAppFonts.normal
+                                Text: |-
+                                    ="Last Inventory Count :"
+                                Width: =320
+                                Y: |
+                                    =0
+                                ZIndex: =1
+
+            "galTabs_2 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
+                BorderColor: =RGBA(215, 58, 60, 1)
+                DelayItemLoading: =true
+                FillPortions: =0
+                Height: |+
+                    =42
+                    
+                Items: =varCurrentInventoryTab
+                Layout: =Layout.Vertical
+                LayoutMinHeight: =50
+                LayoutMinWidth: =320
+                TemplatePadding: =1
+                TemplateSize: =40
+                Width: =Parent.Width
+                WrapCount: =CountRows(galTabs_2.AllItems)
+                X: |
+                    =0
+                ZIndex: =4
+
+                btnTab_2 As button:
+                    BorderColor: =App.Theme.Colors.Primary
+                    BorderThickness: =0
+                    Color: |
+                        =If(viewVarCurrentSelectedInventoryTab=ThisItem.id,RGBA(255, 255, 255, 1),gblAppColors.pantone.rgba)
+                    DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    Fill: |-
+                        =If(viewVarCurrentSelectedInventoryTab=ThisItem.id,gblAppColors.pantone.rgba,ColorValue("#f2f2f2"))
+                    Font: =App.Theme.Font
+                    FontWeight: =FontWeight.Bold
+                    HoverBorderColor: =App.Theme.Colors.Darker10
+                    HoverColor: =RGBA(255, 255, 255, 1)
+                    HoverFill: =ColorFade(Self.Fill, -20%)
+                    OnSelect: =Set(viewVarCurrentSelectedInventoryTab,ThisItem.id)
+                    PressedBorderColor: =App.Theme.Colors.Darker40
+                    PressedColor: =Self.Color
+                    PressedFill: =App.Theme.Colors.Darker40
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Size: =gblAppFonts.normal
+                    Text: =ThisItem.name
+                    Width: =Parent.TemplateWidth
+                    ZIndex: =4
+
+            conSuppliesList_1 As groupContainer.verticalAutoLayoutContainer:
+                Height: =Parent.Height
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =112
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Visible: =If(viewVarCurrentSelectedInventoryTab=1,true,false)
+                ZIndex: =5
+
+                SearchWrapperContainer_2 As groupContainer.manualLayoutContainer:
+                    FillPortions: =0
+                    Height: =SearchInput_2.Height
+                    LayoutMinHeight: =55
+                    LayoutMinWidth: =250
+                    Width: =Parent.Width
+                    ZIndex: =1
+
+                    SearchInput_2 As text:
+                        BorderColor: =RGBA(202, 202, 202, 1)
+                        Clear: =true
+                        Color: =RGBA(163, 163, 163, 1)
+                        Default: =""
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        FocusedBorderThickness: =4
+                        Font: =App.Theme.Font
+                        Height: =50
+                        HintText: ="Search Supplies"
+                        HoverBorderColor: =App.Theme.Colors.Darker40
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =App.Theme.Colors.Lighter70
+                        PaddingLeft: =55
+                        Width: =Parent.Width
+                        X: =(Parent.Width-Self.Width)/2
+                        ZIndex: =1
+
+                    searchIcon_2 As image:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        Height: =30
+                        Image: ='search (1)'
+                        Width: =40
+                        X: =14
+                        Y: =10
+                        ZIndex: =2
+
+                galSuppliesList_1 As gallery.variableTemplateHeightGallery:
+                    BorderColor: =App.Theme.Colors.Darker40
+                    DelayItemLoading: =true
+                    Height: =Parent.Height
+                    Items: =Filter(PatientItems,StartsWith(ItemDescription, SearchInput_2.Text), Title=selectedItem.Title && VisitDate=todayDate)
+                    Layout: =Layout.Vertical
+                    LayoutMinHeight: =Parent.Height - SearchInput_2.Height
+                    LayoutMinWidth: =320
+                    LoadingSpinner: =LoadingSpinner.Data
+                    TemplatePadding: =0
+                    TemplateSize: =Max(galListItemImageContainer_1.Height,galItelListContentWrapper_1.Height,galItemListActionButtonsWrapper_1.Height,150)
+                    Visible: =If(Self.AllItemsCount>0,true,false)
+                    Width: =Parent.Width
+                    ZIndex: =2
+
+                    galListItemContainer_1 As groupContainer.horizontalAutoLayoutContainer:
+                        DropShadow: =DropShadow.Light
+                        Height: =Max(galListItemImageContainer_1.Height,galItelListContentWrapper_1.LayoutMinHeight,galItemListActionButtonsWrapper_1.LayoutMinHeight)
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutMode: =LayoutMode.Auto
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        Width: =Parent.Width
+                        ZIndex: =1
+
+                        galListItemImageContainer_1 As groupContainer.verticalAutoLayoutContainer:
+                            AlignInContainer: =AlignInContainer.SetByContainer
+                            FillPortions: =0
+                            Height: =itmImage_1.Height+30
+                            LayoutAlignItems: =LayoutAlignItems.Center
+                            LayoutDirection: =LayoutDirection.Vertical
+                            LayoutJustifyContent: =LayoutJustifyContent.Center
+                            LayoutMinHeight: =112
+                            LayoutMinWidth: =250
+                            LayoutMode: =LayoutMode.Auto
+                            Width: =100
+                            ZIndex: =1
+
+                            itmImage_1 As image:
+                                BorderColor: =App.Theme.Colors.Darker40
+                                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                DisabledFill: =RGBA(244, 244, 244, 1)
+                                Height: =75
+                                LayoutMinHeight: =320
+                                LayoutMinWidth: =320
+                                Width: =75
+                                ZIndex: =1
+
+                        galItelListContentWrapper_1 As groupContainer.verticalAutoLayoutContainer:
+                            AlignInContainer: =AlignInContainer.SetByContainer
+                            DropShadow: =DropShadow.Light
+                            Height: |
+                                =conProductNameWrapper_1.Height+conProductDesWrapper_1.Height+conProductBadgeWrapper_1.Height+10
+                            LayoutDirection: =LayoutDirection.Vertical
+                            LayoutMinHeight: |
+                                =conProductNameWrapper_1.Height+conProductDesWrapper_1.Height+conProductBadgeWrapper_1.Height+10
+                            LayoutMinWidth: =250
+                            LayoutMode: =LayoutMode.Auto
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
+                            ZIndex: =2
+
+                            conProductNameWrapper_1 As groupContainer.manualLayoutContainer:
+                                FillPortions: =0
+                                Height: =lblLitemName_1.Height
+                                LayoutMinHeight: =112
+                                LayoutMinWidth: =250
+                                ZIndex: =1
+
+                                lblLitemName_1 As label:
+                                    AutoHeight: =true
+                                    BorderColor: =App.Theme.Colors.Darker40
+                                    Color: =RGBA(0, 0, 0, 1)
+                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                    Font: =App.Theme.Font
+                                    FontWeight: =FontWeight.Bold
+                                    Height: =70
+                                    PaddingBottom: =10
+                                    PaddingLeft: =25
+                                    PaddingRight: =25
+                                    PaddingTop: =20
+                                    Size: =gblAppFonts.medium
+                                    Text: =Trim(ThisItem.ItemDescription)
+                                    Width: =390
+                                    Y: |
+                                        =(Parent.Height-Self.Height)/2
+                                    ZIndex: =1
+
+                            conProductDesWrapper_1 As groupContainer.manualLayoutContainer:
+                                FillPortions: =0
+                                Height: =
+                                LayoutMinHeight: =112
+                                LayoutMinWidth: =250
+                                ZIndex: =2
+
+                            conProductBadgeWrapper_1 As groupContainer.manualLayoutContainer:
+                                ContentLanguage: =Parent.Width
+                                FillPortions: =0
+                                Height: =Button3_1.Height
+                                LayoutMinHeight: =112
+                                LayoutMinWidth: =0
+                                PaddingBottom: =20
+                                PaddingLeft: =24
+                                PaddingRight: =5
+                                Width: |
+                                    =200
+                                ZIndex: =3
+
+                                Button3_1 As button:
+                                    BorderColor: =RGBA(0, 134, 208, 1)
+                                    Color: =RGBA(0, 134, 208, 1)
+                                    DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                    DisabledFill: =RGBA(244, 244, 244, 1)
+                                    Fill: =RGBA(255, 255, 255, 1)
+                                    Font: =App.Theme.Font
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =20
+                                    HoverBorderColor: =App.Theme.Colors.Darker10
+                                    HoverColor: =RGBA(255, 255, 255, 1)
+                                    HoverFill: =App.Theme.Colors.Darker10
+                                    PressedBorderColor: =App.Theme.Colors.Darker40
+                                    PressedColor: =Self.Color
+                                    PressedFill: =App.Theme.Colors.Darker40
+                                    RadiusBottomLeft: =100
+                                    RadiusBottomRight: =100
+                                    RadiusTopLeft: =100
+                                    RadiusTopRight: =100
+                                    Size: =8
+                                    Text: =ThisItem.KitName
+                                    Width: =150
+                                    X: =28
+                                    ZIndex: =2
+
+                        galItemListActionButtonsWrapper_1 As groupContainer.verticalAutoLayoutContainer:
+                            AlignInContainer: =AlignInContainer.SetByContainer
+                            FillPortions: =0
+                            Height: =conIconWrapper_1.Height+Container4_1.Height
+                            LayoutDirection: =LayoutDirection.Vertical
+                            LayoutMinHeight: =0
+                            LayoutMinWidth: =250
+                            LayoutMode: =LayoutMode.Auto
+                            Width: =150
+                            ZIndex: =3
+
+                            conIconWrapper_1 As groupContainer.horizontalAutoLayoutContainer:
+                                FillPortions: =0
+                                Height: =45
+                                LayoutAlignItems: =LayoutAlignItems.Center
+                                LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                                LayoutMinHeight: =50
+                                LayoutMinWidth: =70
+                                LayoutMode: =LayoutMode.Auto
+                                PaddingLeft: =10
+                                PaddingRight: =10
+                                ZIndex: =1
+
+                                lblQty_1 As label:
+                                    Align: =Align.Center
+                                    AutoHeight: =true
+                                    BorderColor: =App.Theme.Colors.Darker40
+                                    Color: =RGBA(0, 0, 0, 1)
+                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                    Font: =App.Theme.Font
+                                    FontWeight: =FontWeight.Bold
+                                    Height: =70
+                                    LayoutMinHeight: =70
+                                    LayoutMinWidth: =560
+                                    Size: =gblAppFonts.medium
+                                    Text: |-
+                                        =If(
+                                            IsBlank(
+                                                LookUp(
+                                                    previousPatientItems,
+                                                    ItemDescription = ThisItem.ItemDescription
+                                                ).QTY
+                                            ) Or LookUp(
+                                                previousPatientItems,
+                                                ItemDescription = ThisItem.ItemDescription
+                                            ).QTY <= 0,
+                                            ThisItem.QTY,
+                                            If(
+                                                ThisItem.PrevQTY > 0,
+                                                ThisItem.QTY,
+                                                LookUp(
+                                                    previousPatientItems,
+                                                    ItemDescription = ThisItem.ItemDescription
+                                                ).QTY
+                                            )
+                                        )
+                                        //ThisItem.QTY
+                                    Width: =Parent.Width
+                                    ZIndex: =2
+
+                            Container4_1 As groupContainer.manualLayoutContainer:
+                                FillPortions: =0
+                                Height: =prevQtyLbl_1.Height
+                                LayoutMinHeight: =20
+                                LayoutMinWidth: =0
+                                Width: =Parent.Width
+                                ZIndex: =2
+
+                                prevQtyLbl_1 As label:
+                                    Align: =Align.Center
+                                    AutoHeight: =true
+                                    BorderColor: =App.Theme.Colors.Darker40
+                                    Color: =RGBA(0, 0, 0, 1)
+                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                    Font: =App.Theme.Font
+                                    Height: =20
+                                    Size: =gblAppFonts.normal
+                                    Text: |-
+                                        =If(
+                                            IsBlank(
+                                                LookUp(
+                                                    previousPatientItems,
+                                                    ItemDescription = ThisItem.ItemDescription
+                                                ).QTY
+                                            ),
+                                            "Previous Qty : 0",
+                                            "Previous Qty : " & LookUp(
+                                                previousPatientItems,
+                                                ItemDescription = ThisItem.ItemDescription
+                                            ).QTY
+                                        )
+                                    ZIndex: =1
+
+                noSuppliesFound_1 As label:
+                    Align: =Align.Center
+                    BorderColor: =App.Theme.Colors.Darker40
+                    Color: =RGBA(135, 138, 134, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FontWeight: =FontWeight.Bold
+                    Height: =Parent.Height
+                    LayoutMinHeight: =70
+                    LayoutMinWidth: =560
+                    Size: =12
+                    Text: ="No Supplies items found!"
+                    Visible: =If(galSuppliesList_1.AllItemsCount<=0,true,false)
+                    Width: =Parent.Width
+                    X: =
+                    Y: |
+                        =(Parent.Height-Self.Height)/2
+                    ZIndex: =3
+
+            conNotesImagesWrapper_1 As groupContainer.verticalAutoLayoutContainer:
+                Height: =225
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =112
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                LayoutOverflowY: =LayoutOverflow.Scroll
+                Visible: =If(viewVarCurrentSelectedInventoryTab=2,true,false)
+                ZIndex: =6
+
+                PreviousInfoWrapper_1 As groupContainer.verticalAutoLayoutContainer:
+                    DropShadow: =DropShadow.Light
+                    Fill: =gblAppColors.pantoneWarmGray1.rgba
+                    FillPortions: =0
+                    Height: =lblPreviousNote_1.Height
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutJustifyContent: =LayoutJustifyContent.Center
+                    LayoutMinHeight: =112
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    Visible: =If(varCurrentSelectedInventoryTab=2,true,false)
+                    ZIndex: =1
+
+                    lblPreviousNote_1 As label:
+                        AutoHeight: =true
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =App.Theme.Font
+                        FontWeight: =FontWeight.Bold
+                        Height: =70
+                        LayoutMinHeight: =70
+                        LayoutMinWidth: =560
+                        PaddingBottom: =10
+                        PaddingLeft: =25
+                        PaddingRight: =25
+                        PaddingTop: =10
+                        Size: =gblAppFonts.normal
+                        Text: ="Previous Notes"
+                        Width: =Parent.Width
+                        ZIndex: =1
+
+                conPreviousWrapper_1 As groupContainer.manualLayoutContainer:
+                    FillPortions: =0
+                    Height: =lblPreviousNote_1.Height+10
+                    LayoutMinHeight: =112
+                    LayoutMinWidth: =Parent.Width
+                    PaddingBottom: =10
+                    PaddingTop: =10
+                    Width: =Parent.Width
+                    ZIndex: =2
+
+                    lblPreviousNotes_1 As label:
+                        Align: |
+                            =If(IsBlank(previousNote.Note),Align.Center,Align.Left)
+                        AutoHeight: =true
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =App.Theme.Font
+                        FontWeight: =FontWeight.Semibold
+                        Height: =70
+                        PaddingLeft: =25
+                        PaddingRight: =25
+                        Size: =gblAppFonts.normal
+                        Text: =If(IsBlank(previousNote.Note),"There are no previous note available",previousNote.Note)
+                        Width: =Parent.Width
+                        X: =
+                        Y: |
+                            =(Parent.Height-Self.Height)/2
+                        ZIndex: =1
+
+                PatientNotesWrapper_1 As groupContainer.verticalAutoLayoutContainer:
+                    DropShadow: =DropShadow.Light
+                    Fill: =gblAppColors.pantoneWarmGray1.rgba
+                    FillPortions: =0
+                    Height: =lblNotesWrapper_2.Height
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutJustifyContent: =LayoutJustifyContent.Center
+                    LayoutMinHeight: =112
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =3
+
+                    lblNotesWrapper_2 As label:
+                        AutoHeight: =true
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =App.Theme.Font
+                        FontWeight: =FontWeight.Bold
+                        Height: =70
+                        LayoutMinHeight: =70
+                        LayoutMinWidth: =560
+                        PaddingBottom: =10
+                        PaddingLeft: =25
+                        PaddingRight: =25
+                        PaddingTop: =10
+                        Size: =gblAppFonts.normal
+                        Text: ="Notes"
+                        Width: =Parent.Width
+                        ZIndex: =1
+
+                conNoteHintWrapper_2 As groupContainer.manualLayoutContainer:
+                    FillPortions: =0
+                    Height: =lblNoteHint_2.Height+30
+                    LayoutMinHeight: =112
+                    LayoutMinWidth: =250
+                    ZIndex: =4
+
+                    lblNoteHint_2 As label:
+                        AutoHeight: =true
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =App.Theme.Font
+                        FontWeight: =FontWeight.Semibold
+                        Height: =70
+                        Italic: =true
+                        PaddingLeft: =25
+                        PaddingRight: =25
+                        Size: =gblAppFonts.normal
+                        Text: ="Leave helpful information for the next technician's supply count"
+                        Width: =Parent.Width
+                        Y: =(Parent.Height-Self.Height)/2
+                        ZIndex: =1
+
+                conTextNoteWrapper_1 As groupContainer.manualLayoutContainer:
+                    FillPortions: =0
+                    Height: =110
+                    LayoutMinHeight: =112
+                    LayoutMinWidth: =250
+                    ZIndex: =5
+
+                    txtNotes_1 As text:
+                        BorderColor: =RGBA(204, 204, 204, 1)
+                        Color: =RGBA(0, 0, 0, 1)
+                        Default: =If(IsBlank(todayVisitInfo.Note),"",todayVisitInfo.Note)
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DisplayMode: =DisplayMode.Disabled
+                        FocusedBorderThickness: =4
+                        Height: |
+                            =100
+                        HintText: ="Add Notes"
+                        HoverBorderColor: =App.Theme.Colors.Darker40
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =App.Theme.Colors.Lighter70
+                        Mode: =TextMode.MultiLine
+                        PaddingTop: =10
+                        Size: =gblAppFonts.normal
+                        Width: =Parent.Width-50
+                        X: =(Parent.Width-Self.Width)/2
+                        Y: |
+                            =0
+                        ZIndex: =1
+
+                conNoteHintWrapper_3 As groupContainer.manualLayoutContainer:
+                    FillPortions: =0
+                    Height: =lblNoteHint_3.Height+20
+                    LayoutMinHeight: =112
+                    LayoutMinWidth: =250
+                    ZIndex: =6
+
+                    lblNoteHint_3 As label:
+                        AutoHeight: =true
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =App.Theme.Font
+                        FontWeight: =FontWeight.Semibold
+                        Height: =70
+                        Italic: =true
+                        PaddingLeft: =25
+                        PaddingRight: =25
+                        Size: =gblAppFonts.normal
+                        Text: |-
+                            ="Suggestions : Where supplies are located, things about the patient's home etc.."
+                        Width: =Parent.Width
+                        ZIndex: =1
+
+                ImagesWrapper_1 As groupContainer.verticalAutoLayoutContainer:
+                    DropShadow: =DropShadow.Light
+                    Fill: =gblAppColors.pantoneWarmGray1.rgba
+                    FillPortions: =0
+                    Height: =lblNotesWrapper_3.Height
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutJustifyContent: =LayoutJustifyContent.Center
+                    LayoutMinHeight: =112
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =7
+
+                    lblNotesWrapper_3 As label:
+                        AutoHeight: =true
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =App.Theme.Font
+                        FontWeight: =FontWeight.Bold
+                        Height: =70
+                        LayoutMinHeight: =70
+                        LayoutMinWidth: =560
+                        PaddingBottom: =10
+                        PaddingLeft: =25
+                        PaddingRight: =25
+                        PaddingTop: =10
+                        Size: =gblAppFonts.normal
+                        Text: ="Attached Images"
+                        Width: =Parent.Width
+                        ZIndex: =1
+
+                conFooterContainer_1 As groupContainer.verticalAutoLayoutContainer:
+                    DropShadow: =DropShadow.Light
+                    Height: =225
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMinHeight: =112
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    ZIndex: =8
+
+                    Container5_2 As groupContainer.manualLayoutContainer:
+                        Height: =225
+                        LayoutMinHeight: =112
+                        LayoutMinWidth: =250
+                        ZIndex: =1
+
+                        Image3_1 As image:
+                            BorderColor: =App.Theme.Colors.Darker40
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            Height: =170
+                            Image: =If(IsBlank(varCapuredCamera),If(IsBlank(todayVisitInfo.VisitImage),SampleImage,todayVisitInfo.VisitImage),varCapuredCamera)
+                            OnSelect: |-
+                                =Set(varSupplieImage,Image3_1.Image);
+                                Set(varOpenViewImage,true)
+                            Width: =170
+                            X: =25
+                            Y: =(Parent.Height-Image3_1.Height)/2
+                            ZIndex: =1
+
+                    Container5_3 As groupContainer.manualLayoutContainer:
+                        FillPortions: =0
+                        Height: =90
+                        LayoutMinHeight: =112
+                        LayoutMinWidth: =250
+                        Width: =Parent.Width
+                        ZIndex: =2
+
+                        imgAddBtn_5 As button:
+                            BorderColor: =
+                            BorderStyle: =BorderStyle.Dashed
+                            Color: =RGBA(0, 0, 0, 1)
+                            DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(242, 240, 240, 1)
+                            DisplayMode: =DisplayMode.Disabled
+                            Fill: =RGBA(255, 255, 255, 1)
+                            Font: =App.Theme.Font
+                            FontWeight: =FontWeight.Semibold
+                            Height: =55
+                            HoverBorderColor: =RGBA(0, 0, 0, 1)
+                            HoverColor: =RGBA(0, 0, 0, 1)
+                            HoverFill: =RGBA(255, 255, 255, 0)
+                            OnSelect: =Set(showImageUpload,true)
+                            PressedBorderColor: =RGBA(0, 0, 0, 1)
+                            PressedColor: =RGBA(0, 0, 0, 1)
+                            PressedFill: =RGBA(255, 255, 255, 0)
+                            RadiusBottomLeft: =5
+                            RadiusBottomRight: =5
+                            RadiusTopLeft: =5
+                            RadiusTopRight: =5
+                            Size: =30
+                            Text: ="+"
+                            Width: =Parent.Width-50
+                            X: =(Parent.Width-Self.Width)/2
+                            Y: =(Parent.Height-Self.Height)/2
+                            ZIndex: =1
+
+                    Container6_2 As groupContainer.manualLayoutContainer:
+                        FillPortions: =0
+                        Height: =100
+                        LayoutMinHeight: =90
+                        LayoutMinWidth: =250
+                        ZIndex: =3
+
+                        Container1_1 As groupContainer.horizontalAutoLayoutContainer:
+                            Height: =100
+                            LayoutMode: =LayoutMode.Auto
+                            Width: =Parent.Width
+                            X: |
+                                =0
+                            ZIndex: =2
+
+                            Container2_2 As groupContainer.manualLayoutContainer:
+                                Height: =225
+                                LayoutMinHeight: =100
+                                LayoutMinWidth: =250
+                                ZIndex: =1
+
+                                imgAddBtn_6 As button:
+                                    BorderColor: =RGBA(215, 58, 60, 1)
+                                    Color: =RGBA(215, 58, 60, 1)
+                                    DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                    DisabledFill: =RGBA(244, 244, 244, 1)
+                                    Fill: =RGBA(255, 255, 255, 1)
+                                    Font: =App.Theme.Font
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =55
+                                    HoverBorderColor: =RGBA(215, 58, 60, 1)
+                                    HoverColor: =RGBA(215, 58, 60, 1)
+                                    HoverFill: =RGBA(255, 255, 255, 0)
+                                    OnSelect: =Set(viewVarCurrentSelectedInventoryTab,1)
+                                    PressedBorderColor: =RGBA(215, 58, 60, 1)
+                                    PressedColor: =RGBA(215, 58, 60, 1)
+                                    PressedFill: =RGBA(255, 255, 255, 0)
+                                    RadiusBottomLeft: =5
+                                    RadiusBottomRight: =5
+                                    RadiusTopLeft: =5
+                                    RadiusTopRight: =5
+                                    Size: =15
+                                    Text: ="Back"
+                                    Width: =Parent.Width-50
+                                    X: =(Parent.Width-Self.Width)/2
+                                    Y: =(Parent.Height-Self.Height)/2
+                                    ZIndex: =1
+
+                            Container2_3 As groupContainer.manualLayoutContainer:
+                                Height: =225
+                                LayoutMinHeight: =100
+                                LayoutMinWidth: =250
+                                ZIndex: =2
+
+                                imgAddBtn_7 As button:
+                                    BorderColor: =
+                                    BorderStyle: =BorderStyle.None
+                                    BorderThickness: =0
+                                    DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                    DisabledFill: =RGBA(244, 244, 244, 1)
+                                    DisplayMode: =DisplayMode.Disabled
+                                    Fill: =gblAppColors.pantone.rgba
+                                    Font: =App.Theme.Font
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =55
+                                    HoverBorderColor: =gblAppColors.pantone.rgba
+                                    HoverColor: =RGBA(255, 255, 255, 1)
+                                    HoverFill: =gblAppColors.pantone.rgba
+                                    PressedBorderColor: =gblAppColors.pantone.rgba
+                                    PressedColor: =gblAppColors.pantone.rgba
+                                    PressedFill: =RGBA(255, 255, 255, 0)
+                                    RadiusBottomLeft: =5
+                                    RadiusBottomRight: =5
+                                    RadiusTopLeft: =5
+                                    RadiusTopRight: =5
+                                    Size: =15
+                                    Text: ="Submit"
+                                    Width: =Parent.Width-50
+                                    X: =(Parent.Width-Self.Width)/2
+                                    Y: =(Parent.Height-Self.Height)/2
+                                    ZIndex: =1
+
+            Container6_3 As groupContainer.manualLayoutContainer:
+                FillPortions: =0
+                Height: =100
+                LayoutMinHeight: =90
+                LayoutMinWidth: =250
+                Visible: =If(viewVarCurrentSelectedInventoryTab=1,true,false)
+                ZIndex: =7
+
+                imgAddBtn_8 As button:
+                    BorderColor: =
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =0
+                    DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    Fill: =gblAppColors.pantone.rgba
+                    Font: =App.Theme.Font
+                    FontWeight: =FontWeight.Semibold
+                    Height: =55
+                    HoverBorderColor: =gblAppColors.pantone.rgba
+                    HoverColor: =RGBA(255, 255, 255, 1)
+                    HoverFill: =gblAppColors.pantone.rgba
+                    OnSelect: =Set(viewVarCurrentSelectedInventoryTab,2);
+                    PressedBorderColor: =gblAppColors.pantone.rgba
+                    PressedColor: =RGBA(255, 255, 255, 1)
+                    PressedFill: =gblAppColors.pantone.rgba
+                    RadiusBottomLeft: =5
+                    RadiusBottomRight: =5
+                    RadiusTopLeft: =5
+                    RadiusTopRight: =5
+                    Size: =15
+                    Text: ="Continue"
+                    Width: =Parent.Width-50
+                    X: =(Parent.Width-Self.Width)/2
+                    Y: =(Parent.Height-Self.Height)/2
+                    ZIndex: =1
+
+    conModel_1 As groupContainer.verticalAutoLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Fill: =RGBA(0, 0, 0, 0.5)
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Center
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutJustifyContent: =LayoutJustifyContent.Center
+        LayoutMode: =LayoutMode.Auto
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Visible: =showImageUpload
+        Width: =Parent.Width
+        ZIndex: =2
+
+        model_1 As groupContainer.manualLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            DropShadow: =DropShadow.Light
+            Fill: =Color.White
+            FillPortions: =0
+            Height: =400
+            LayoutMinHeight: =112
+            LayoutMinWidth: =250
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Width: =400
+            ZIndex: =1
+
+            conWrapper_1 As groupContainer.verticalAutoLayoutContainer:
+                DropShadow: =DropShadow.Light
+                Height: =Parent.Height
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMode: =LayoutMode.Auto
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                Width: =Parent.Width
+                Y: |
+                    =0
+                ZIndex: =1
+
+                Container10_1 As groupContainer.manualLayoutContainer:
+                    Height: =225
+                    LayoutMinHeight: =112
+                    LayoutMinWidth: =250
+                    ZIndex: =1
+
+                    AddMediaWithImage2_1 As group:
+                        Height: =5
+                        Width: =5
+                        X: =40
+                        Y: =40
+                        ZIndex: =1
+
+                        UploadedImage2_1 As image:
+                            BorderColor: =App.Theme.Colors.Darker40
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            Height: =Parent.Height
+                            Image: =If(IsBlank(AddMediaButton2_1.Media), SampleImage, AddMediaButton2_1.Media)
+                            Width: =400
+                            X: =AddMediaButton2_1.X
+                            Y: =AddMediaButton2_1.Y
+                            ZIndex: =2
+
+                        AddMediaButton2_1 As addMedia:
+                            BorderColor: =App.Theme.Colors.Darker40
+                            Color: =RGBA(0, 0, 0, 1)
+                            Fill: =RGBA(255, 255, 255, 1)
+                            Height: =Parent.Height
+                            Size: =15
+                            Width: =400
+                            ZIndex: =3
+
+                Container12_1 As groupContainer.verticalAutoLayoutContainer:
+                    BorderStyle: =BorderStyle.None
+                    FillPortions: =0
+                    Height: =85
+                    LayoutMinHeight: =70
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    Width: =Parent.Width
+                    ZIndex: =2
+
+                    Container13_2 As groupContainer.manualLayoutContainer:
+                        Height: =225
+                        LayoutMinHeight: =85
+                        LayoutMinWidth: =200
+                        X: =
+                        ZIndex: =1
+
+                        Button1_2 As button:
+                            BorderColor: =App.Theme.Colors.Primary
+                            BorderStyle: =BorderStyle.None
+                            Color: =RGBA(0, 0, 0, 1)
+                            DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            Fill: =RGBA(235, 235, 235, 1)
+                            Font: =App.Theme.Font
+                            FontWeight: =FontWeight.Semibold
+                            Height: =Parent.Height-40
+                            HoverBorderColor: =App.Theme.Colors.Darker10
+                            HoverColor: =RGBA(255, 255, 255, 1)
+                            HoverFill: =App.Theme.Colors.Darker10
+                            OnSelect: =Set(showImageUpload,false)
+                            PressedBorderColor: =App.Theme.Colors.Darker40
+                            PressedColor: =Self.Color
+                            PressedFill: =App.Theme.Colors.Darker40
+                            RadiusBottomLeft: =5
+                            RadiusBottomRight: =5
+                            RadiusTopLeft: =5
+                            RadiusTopRight: =5
+                            Size: =15
+                            Text: ="Cancel"
+                            Width: =Parent.Width-50
+                            X: =(Parent.Width-Self.Width)/2
+                            Y: =(Parent.Height-Self.Height)/2
+                            ZIndex: =2
+
+                    Container13_3 As groupContainer.manualLayoutContainer:
+                        Height: =225
+                        LayoutMinHeight: =85
+                        LayoutMinWidth: =200
+                        ZIndex: =2
+
+                        Button1_3 As button:
+                            BorderColor: =App.Theme.Colors.Primary
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =0
+                            Color: =Color.White
+                            DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            Fill: =gblAppColors.pantone.rgba
+                            Font: =App.Theme.Font
+                            FontWeight: =FontWeight.Semibold
+                            Height: =Parent.Height-40
+                            HoverBorderColor: =App.Theme.Colors.Darker10
+                            HoverColor: =RGBA(255, 255, 255, 1)
+                            HoverFill: =App.Theme.Colors.Darker10
+                            OnSelect: |-
+                                =Set(showImageUpload,false);
+                                Set(varCapuredCamera,UploadedImage2_1.Image);
+                            PressedBorderColor: =App.Theme.Colors.Darker40
+                            PressedColor: =Self.Color
+                            PressedFill: =App.Theme.Colors.Darker40
+                            RadiusBottomLeft: =5
+                            RadiusBottomRight: =5
+                            RadiusTopLeft: =5
+                            RadiusTopRight: =5
+                            Size: =15
+                            Text: ="Ok"
+                            Width: =Parent.Width-50
+                            X: =(Parent.Width-Self.Width)/2
+                            Y: =(Parent.Height-Self.Height)/2
+                            ZIndex: =1
+
+    conImageView_1 As groupContainer.verticalAutoLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Fill: =RGBA(0, 0, 0, 0.2)
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Center
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutJustifyContent: =LayoutJustifyContent.Center
+        LayoutMode: =LayoutMode.Auto
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Visible: =varOpenViewImage
+        Width: =Parent.Width
+        ZIndex: =3
+
+        Container17_1 As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.Center
+            DropShadow: =DropShadow.Light
+            Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =0
+            Height: =50
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+            LayoutMinHeight: =112
+            LayoutMinWidth: |
+                =Parent.Width-100
+            LayoutMode: =LayoutMode.Auto
+            Width: |
+                =Parent.Width-100
+            ZIndex: =1
+
+            Label1_1 As label:
+                AutoHeight: =true
+                BorderColor: =App.Theme.Colors.Darker40
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =App.Theme.Font
+                Height: =70
+                LayoutMinHeight: =70
+                LayoutMinWidth: =560
+                PaddingLeft: =10
+                Text: ="Captured Picture"
+                Width: =Parent.Width-Icon2_1.Width
+                ZIndex: =1
+
+            Icon2_1 As icon.Cancel:
+                BorderColor: =App.Theme.Colors.Darker40
+                Color: =App.Theme.Colors.Darker30
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =40
+                Icon: =Icon.Cancel
+                OnSelect: =Set(varOpenViewImage,false)
+                PaddingRight: =10
+                Width: =40
+                ZIndex: =2
+
+        Container16_1 As groupContainer.manualLayoutContainer:
+            AlignInContainer: =AlignInContainer.Center
+            DropShadow: =DropShadow.Light
+            Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =0
+            Height: |
+                =400
+            LayoutMinHeight: =112
+            LayoutMinWidth: =250
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Width: |
+                =Parent.Width-100
+            ZIndex: =2
+
+            Image7_1 As image:
+                BorderColor: =App.Theme.Colors.Darker40
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Height: |
+                    =Parent.Height-20
+                Image: =varSupplieImage
+                ImagePosition: =ImagePosition.Fill
+                Width: =Parent.Width-20
+                X: =(Parent.Width-Self.Width)/2
+                Y: =(Parent.Height-Self.Height)/2
+                ZIndex: =1
+

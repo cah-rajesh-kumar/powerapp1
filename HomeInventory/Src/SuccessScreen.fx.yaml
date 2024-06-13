@@ -1,0 +1,104 @@
+SuccessScreen As screen:
+    Fill: =Color.White
+    LoadingSpinnerColor: =App.Theme.Colors.Primary
+
+    conSuccessScreen As groupContainer.verticalAutoLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Height: =Parent.Height
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Width: =Parent.Width
+        ZIndex: =1
+
+        conMainWrapper As groupContainer.verticalAutoLayoutContainer:
+            DropShadow: =DropShadow.Light
+            Height: =225
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutGap: =30
+            LayoutJustifyContent: =LayoutJustifyContent.Center
+            LayoutMinHeight: =112
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            ZIndex: =1
+
+            Icon1 As icon.CheckBadge:
+                BorderColor: =App.Theme.Colors.Darker40
+                Color: =RGBA(72, 163, 62, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =150
+                Icon: =Icon.CheckBadge
+                Width: =150
+                ZIndex: =1
+
+            Label2 As label:
+                Align: =Align.Center
+                BorderColor: =App.Theme.Colors.Darker40
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =App.Theme.Font
+                Height: =70
+                LayoutMinHeight: =70
+                LayoutMinWidth: =560
+                Size: =21
+                Text: ="Submitted Successfully"
+                Width: =560
+                ZIndex: =2
+
+        conFooter As groupContainer.verticalAutoLayoutContainer:
+            DropShadow: =DropShadow.Light
+            FillPortions: =0
+            Height: =150
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutJustifyContent: =LayoutJustifyContent.Center
+            LayoutMinHeight: =112
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            X: =25
+            Y: =22
+            ZIndex: =2
+
+            imgAddBtn_4 As button:
+                BorderColor: =
+                BorderThickness: =0
+                DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =gblAppColors.pantone.rgba
+                Font: =App.Theme.Font
+                FontWeight: =FontWeight.Bold
+                Height: =55
+                HoverBorderColor: =gblAppColors.pantone.rgba
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: =gblAppColors.pantone.rgba
+                LayoutMinHeight: =70
+                LayoutMinWidth: =280
+                OnSelect: =Navigate(HomeScreen,ScreenTransition.Fade)
+                PressedBorderColor: =gblAppColors.pantone.rgba
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =gblAppColors.pantone.rgba
+                RadiusBottomLeft: =100
+                RadiusBottomRight: =100
+                RadiusTopLeft: =100
+                RadiusTopRight: =100
+                Size: =15
+                Text: ="Continue"
+                Width: =Parent.Width-300
+                X: =(Parent.Width-Self.Width)/2
+                Y: =(Parent.Height-Self.Height)/2
+                ZIndex: =1
+

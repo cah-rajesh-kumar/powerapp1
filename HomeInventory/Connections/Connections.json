@@ -1,0 +1,63 @@
+{
+  "107baeed-58f3-48c5-80f1-3779b7403247": {
+    "appActions": [
+      "providers/PowerPlatform.Governance/Operations/Read",
+      "providers/PowerPlatform.Governance/Operations/Write"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1693/1.0.1693.3738/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://cardinalhealth.sharepoint.com/sites/WM-MDS-Sidecar-Internal-Team": {
+        "dataSources": {
+          "PatientItems": {
+            "tableName": "1514cf96-61e4-43e4-985c-3e953510c232"
+          },
+          "PatientsList": {
+            "tableName": "6d5378cc-48fd-4873-9790-5bf7eca1d709"
+          },
+          "PatientVisits": {
+            "tableName": "745e0122-f80b-48fc-99b8-007a9f3bb918"
+          },
+          "TemplateItemImage": {
+            "tableName": "b1f03d44-edcc-4a41-a0b9-bfd02a2876e5"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "PatientsList",
+      "PatientItems",
+      "PatientVisits",
+      "TemplateItemImage"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "107baeed-58f3-48c5-80f1-3779b7403247"
+  },
+  "d42ceec0-f7fd-451f-984f-49dbd4d2e689": {
+    "appActions": [
+      "MyProfile_V2"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Office 365 Users",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1686/1.0.1686.3706/office365users/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365users",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "Office365Users"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "d42ceec0-f7fd-451f-984f-49dbd4d2e689"
+  }
+}
