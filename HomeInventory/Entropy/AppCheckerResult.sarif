@@ -14,426 +14,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "InventoryScreen.InventoryContainerView.InventoryMainContainer.galTabs_1.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "InventoryScreen.InventoryContainerView.InventoryMainContainer.galTabs_1.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "InventoryScreen",
-                "type": "InventoryScreen.InventoryContainerView.InventoryMainContainer.galTabs_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "InventoryScreen.InventoryContainerView.InventoryMainContainer.galTabs_1.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "InventoryScreen.InventoryContainerView.InventoryMainContainer.galTabs_1.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "InventoryScreen",
-                "type": "InventoryScreen.InventoryContainerView.InventoryMainContainer.galTabs_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conSuppliesList.SearchWrapperContainer_1.SearchInput_1.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conSuppliesList.SearchWrapperContainer_1.SearchInput_1.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "InventoryScreen",
-                "type": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conSuppliesList.SearchWrapperContainer_1.SearchInput_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conSuppliesList.galSuppliesList.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conSuppliesList.galSuppliesList.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "InventoryScreen",
-                "type": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conSuppliesList.galSuppliesList"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conSuppliesList.galSuppliesList.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conSuppliesList.galSuppliesList.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "InventoryScreen",
-                "type": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conSuppliesList.galSuppliesList"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conSuppliesList.galSuppliesList.galListItemContainer.galItemListActionButtonsWrapper.conIconWrapper.qtyInput.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conSuppliesList.galSuppliesList.galListItemContainer.galItemListActionButtonsWrapper.conIconWrapper.qtyInput.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "InventoryScreen",
-                "type": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conSuppliesList.galSuppliesList.galListItemContainer.galItemListActionButtonsWrapper.conIconWrapper.qtyInput"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conSuppliesList.galSuppliesList.galListItemContainer.galItemListActionButtonsWrapper.conIconWrapper.Container3_1.Image1.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conSuppliesList.galSuppliesList.galListItemContainer.galItemListActionButtonsWrapper.conIconWrapper.Container3_1.Image1.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "InventoryScreen",
-                "type": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conSuppliesList.galSuppliesList.galListItemContainer.galItemListActionButtonsWrapper.conIconWrapper.Container3_1.Image1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conSuppliesList.galSuppliesList.galListItemContainer.galItemListActionButtonsWrapper.conIconWrapper.Container3_1.Image1.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conSuppliesList.galSuppliesList.galListItemContainer.galItemListActionButtonsWrapper.conIconWrapper.Container3_1.Image1.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "InventoryScreen",
-                "type": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conSuppliesList.galSuppliesList.galListItemContainer.galItemListActionButtonsWrapper.conIconWrapper.Container3_1.Image1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conNotesImagesWrapper.conTextNoteWrapper.txtNotes.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conNotesImagesWrapper.conTextNoteWrapper.txtNotes.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "InventoryScreen",
-                "type": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conNotesImagesWrapper.conTextNoteWrapper.txtNotes"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conNotesImagesWrapper.conFooterContainer.Container5.Image3.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conNotesImagesWrapper.conFooterContainer.Container5.Image3.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "InventoryScreen",
-                "type": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conNotesImagesWrapper.conFooterContainer.Container5.Image3"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conNotesImagesWrapper.conFooterContainer.Container5.Image3.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conNotesImagesWrapper.conFooterContainer.Container5.Image3.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "InventoryScreen",
-                "type": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conNotesImagesWrapper.conFooterContainer.Container5.Image3"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "InventoryScreen.conModel.model.conWrapper.Container10.AddMediaButton2.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "InventoryScreen.conModel.model.conWrapper.Container10.AddMediaButton2.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "InventoryScreen",
-                "type": "InventoryScreen.conModel.model.conWrapper.Container10.AddMediaButton2"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "InventoryScreen.conImageView.Container17.Icon2.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "InventoryScreen.conImageView.Container17.Icon2.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "InventoryScreen",
-                "type": "InventoryScreen.conImageView.Container17.Icon2"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "InventoryScreen.conImageView.Container17.Icon2.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "InventoryScreen.conImageView.Container17.Icon2.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "InventoryScreen",
-                "type": "InventoryScreen.conImageView.Container17.Icon2"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "ViewInventoryHistory.InventoryContainerView_1.InventoryMainContainer_1.galTabs_2.AccessibleLabel"
                 }
               ],
@@ -914,19 +494,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "InventoryScreen.conItemImageView.Container17_2.Icon2_2.AccessibleLabel"
+                  "fullyQualifiedName": "InventoryScreen.InventoryContainerView.InventoryMainContainer.galTabs_1.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "InventoryScreen.conItemImageView.Container17_2.Icon2_2.AccessibleLabel",
+                  "fullyQualifiedName": "InventoryScreen.InventoryContainerView.InventoryMainContainer.galTabs_1.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "InventoryScreen",
-                "type": "InventoryScreen.conItemImageView.Container17_2.Icon2_2"
+                "type": "InventoryScreen.InventoryContainerView.InventoryMainContainer.galTabs_1"
               }
             }
           ],
@@ -944,19 +524,109 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "InventoryScreen.conItemImageView.Container17_2.Icon2_2.TabIndex"
+                  "fullyQualifiedName": "InventoryScreen.InventoryContainerView.InventoryMainContainer.galTabs_1.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "InventoryScreen.conItemImageView.Container17_2.Icon2_2.TabIndex",
+                  "fullyQualifiedName": "InventoryScreen.InventoryContainerView.InventoryMainContainer.galTabs_1.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
                 "module": "InventoryScreen",
-                "type": "InventoryScreen.conItemImageView.Container17_2.Icon2_2"
+                "type": "InventoryScreen.InventoryContainerView.InventoryMainContainer.galTabs_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conSuppliesList.SearchWrapperContainer_1.SearchInput_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conSuppliesList.SearchWrapperContainer_1.SearchInput_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "InventoryScreen",
+                "type": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conSuppliesList.SearchWrapperContainer_1.SearchInput_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conSuppliesList.galSuppliesList.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conSuppliesList.galSuppliesList.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "InventoryScreen",
+                "type": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conSuppliesList.galSuppliesList"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conSuppliesList.galSuppliesList.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conSuppliesList.galSuppliesList.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "InventoryScreen",
+                "type": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conSuppliesList.galSuppliesList"
               }
             }
           ],
@@ -1034,19 +704,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "App.gblImagePath"
+                  "fullyQualifiedName": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conSuppliesList.galSuppliesList.galListItemContainer.galItemListActionButtonsWrapper.conIconWrapper.qtyInput.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "App.gblImagePath",
+                  "fullyQualifiedName": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conSuppliesList.galSuppliesList.galListItemContainer.galItemListActionButtonsWrapper.conIconWrapper.qtyInput.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
-                "member": "gblImagePath",
-                "module": "App",
-                "type": "App"
+                "member": "AccessibleLabel",
+                "module": "InventoryScreen",
+                "type": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conSuppliesList.galSuppliesList.galListItemContainer.galItemListActionButtonsWrapper.conIconWrapper.qtyInput"
               }
             }
           ],
@@ -1056,8 +726,308 @@
           "properties": {
             "level": "Medium"
           },
-          "ruleId": "app-UnusedVariables",
-          "ruleIndex": 2
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conSuppliesList.galSuppliesList.galListItemContainer.galItemListActionButtonsWrapper.conIconWrapper.Container3_1.Image1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conSuppliesList.galSuppliesList.galListItemContainer.galItemListActionButtonsWrapper.conIconWrapper.Container3_1.Image1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "InventoryScreen",
+                "type": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conSuppliesList.galSuppliesList.galListItemContainer.galItemListActionButtonsWrapper.conIconWrapper.Container3_1.Image1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conSuppliesList.galSuppliesList.galListItemContainer.galItemListActionButtonsWrapper.conIconWrapper.Container3_1.Image1.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conSuppliesList.galSuppliesList.galListItemContainer.galItemListActionButtonsWrapper.conIconWrapper.Container3_1.Image1.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "InventoryScreen",
+                "type": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conSuppliesList.galSuppliesList.galListItemContainer.galItemListActionButtonsWrapper.conIconWrapper.Container3_1.Image1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conNotesImagesWrapper.conTextNoteWrapper.txtNotes.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conNotesImagesWrapper.conTextNoteWrapper.txtNotes.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "InventoryScreen",
+                "type": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conNotesImagesWrapper.conTextNoteWrapper.txtNotes"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conNotesImagesWrapper.conFooterContainer.Container5.Image3.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conNotesImagesWrapper.conFooterContainer.Container5.Image3.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "InventoryScreen",
+                "type": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conNotesImagesWrapper.conFooterContainer.Container5.Image3"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conNotesImagesWrapper.conFooterContainer.Container5.Image3.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conNotesImagesWrapper.conFooterContainer.Container5.Image3.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "InventoryScreen",
+                "type": "InventoryScreen.InventoryContainerView.InventoryMainContainer.conNotesImagesWrapper.conFooterContainer.Container5.Image3"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "InventoryScreen.conModel.model.conWrapper.Container10.AddMediaButton2.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "InventoryScreen.conModel.model.conWrapper.Container10.AddMediaButton2.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "InventoryScreen",
+                "type": "InventoryScreen.conModel.model.conWrapper.Container10.AddMediaButton2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "InventoryScreen.conImageView.Container17.Icon2.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "InventoryScreen.conImageView.Container17.Icon2.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "InventoryScreen",
+                "type": "InventoryScreen.conImageView.Container17.Icon2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "InventoryScreen.conImageView.Container17.Icon2.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "InventoryScreen.conImageView.Container17.Icon2.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "InventoryScreen",
+                "type": "InventoryScreen.conImageView.Container17.Icon2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "InventoryScreen.conItemImageView.Container17_2.Icon2_2.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "InventoryScreen.conItemImageView.Container17_2.Icon2_2.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "InventoryScreen",
+                "type": "InventoryScreen.conItemImageView.Container17_2.Icon2_2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "InventoryScreen.conItemImageView.Container17_2.Icon2_2.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "InventoryScreen.conItemImageView.Container17_2.Icon2_2.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "InventoryScreen",
+                "type": "InventoryScreen.conItemImageView.Container17_2.Icon2_2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
         },
         {
           "locations": [
@@ -1094,47 +1064,17 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "App.gblKitColorCode"
+                  "fullyQualifiedName": "App.gblImagePath"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "App.gblKitColorCode",
+                  "fullyQualifiedName": "App.gblImagePath",
                   "relativeAddress": 0
                 }
               },
               "properties": {
-                "member": "gblKitColorCode",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedVariables",
-          "ruleIndex": 2
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.gblParameters"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.gblParameters",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "gblParameters",
+                "member": "gblImagePath",
                 "module": "App",
                 "type": "App"
               }
@@ -1184,19 +1124,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "InventoryScreen.InventoryContainerView.InventoryMainContainer.PatientInfoContainer.conPatientAddress.Visible"
+                  "fullyQualifiedName": "App.gblParameters"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "InventoryScreen.InventoryContainerView.InventoryMainContainer.PatientInfoContainer.conPatientAddress.Visible",
+                  "fullyQualifiedName": "App.gblParameters",
                   "relativeAddress": 0
                 }
               },
               "properties": {
-                "member": "Visible",
-                "module": "InventoryScreen",
-                "type": "InventoryScreen.InventoryContainerView.InventoryMainContainer.PatientInfoContainer.conPatientAddress"
+                "member": "gblParameters",
+                "module": "App",
+                "type": "App"
               }
             }
           ],
@@ -1206,8 +1146,8 @@
           "properties": {
             "level": "Medium"
           },
-          "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 3
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 2
         },
         {
           "locations": [
@@ -1227,6 +1167,36 @@
                 "member": "Visible",
                 "module": "ViewInventoryHistory",
                 "type": "ViewInventoryHistory.InventoryContainerView_1.InventoryMainContainer_1.PatientInfoContainer_1.conPatientAddress_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-InefficientDelayLoading",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "InventoryScreen.InventoryContainerView.InventoryMainContainer.PatientInfoContainer.conPatientAddress.Visible"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "InventoryScreen.InventoryContainerView.InventoryMainContainer.PatientInfoContainer.conPatientAddress.Visible",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "Visible",
+                "module": "InventoryScreen",
+                "type": "InventoryScreen.InventoryContainerView.InventoryMainContainer.PatientInfoContainer.conPatientAddress"
               }
             }
           ],

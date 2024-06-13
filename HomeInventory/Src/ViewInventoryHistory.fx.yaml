@@ -211,7 +211,8 @@ ViewInventoryHistory As screen:
                     OnSelect: |
                         =Navigate(
                             InventoryScreen,
-                            ScreenTransition.Fade
+                            ScreenTransition.Fade,
+                            {selectedItem: GalleryPatientsList.Selected}
                         );
                     PressedBorderColor: =gblAppColors.pantone.rgba
                     PressedColor: =RGBA(255, 255, 255, 1)

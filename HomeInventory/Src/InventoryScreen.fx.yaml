@@ -627,6 +627,10 @@ InventoryScreen As screen:
                                 PaddingBottom: =20
                                 PaddingLeft: =24
                                 PaddingRight: =5
+                                RadiusBottomLeft: =100
+                                RadiusBottomRight: =100
+                                RadiusTopLeft: =100
+                                RadiusTopRight: =100
                                 Width: |
                                     =200
                                 ZIndex: =3
@@ -635,12 +639,49 @@ InventoryScreen As screen:
                                     Align: =Align.Center
                                     AutoHeight: =true
                                     BorderColor: =App.Theme.Colors.Darker40
-                                    Color: =RGBA(0, 0, 0, 1)
+                                    Color: |-
+                                        =Switch(
+                                            ThisItem.Group,
+                                            "Bag1",
+                                            Color.White,
+                                            "Bag2",
+                                            Color.White,
+                                            "Bag3",
+                                            Color.White,
+                                            "Bag4",
+                                            Color.White,
+                                            "Other",
+                                            Color.White,
+                                            "5 Day Kit",
+                                            Color.White,
+                                            "IV Push Kit",
+                                            Color.White,
+                                            Color.Black
+                                        )
                                     DisabledColor: =RGBA(166, 166, 166, 1)
+                                    Fill: |-
+                                        =Switch(
+                                            ThisItem.Group,
+                                            "Bag1",
+                                            ColorValue(gblKitColorCode.bag1),
+                                            "Bag2",
+                                            ColorValue(gblKitColorCode.bag2),
+                                            "Bag3",
+                                            ColorValue(gblKitColorCode.bag3),
+                                            "Bag4",
+                                            ColorValue(gblKitColorCode.bag4),
+                                            "Other",
+                                            ColorValue(gblKitColorCode.others),
+                                            "5 Day Kit",
+                                            ColorValue(gblKitColorCode.others),
+                                            "IV Push Kit",
+                                            ColorValue(gblKitColorCode.ivPushKit),
+                                            ColorValue(gblKitColorCode.default)
+                                        )
                                     Font: =App.Theme.Font
                                     Height: =lblItemKitName.AutoHeight
                                     Size: =10
-                                    Text: =ThisItem.KitName
+                                    Text: =ThisItem.KitName & " " & ThisItem.Group
                                     Width: |
                                         =250
                                     X: =25
