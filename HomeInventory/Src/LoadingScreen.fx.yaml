@@ -168,11 +168,11 @@ LoadingScreen As screen:
             Set(
                 gblAppFonts,
                 {
-                    small: 8,
-                    normal: 11,
-                    medium: 15,
-                    large: 18,
-                    extralarge: 20
+                    small: 10,
+                    normal: 13,
+                    medium: 17,
+                    large: 20,
+                    extralarge: 22
                 }
             ),
             Set (

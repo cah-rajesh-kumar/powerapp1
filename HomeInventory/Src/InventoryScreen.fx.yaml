@@ -20,6 +20,8 @@ InventoryScreen As screen:
         Set(showImageUpload,false);
         Set(varOpenViewImage,false);
         Set(varSupplieImage,Blank());
+        Set(varSelectedItemImage,Blank());
+        Set(varSelectedItem,Blank());
         Set(
             previousNote,
             Blank()
@@ -400,7 +402,7 @@ InventoryScreen As screen:
                                 PaddingLeft: =25
                                 Size: =gblAppFonts.normal
                                 Text: |-
-                                    ="Last Inventory Count : 03/22/2024"
+                                    =If(IsBlank(selectedItem.LastCompletedDate),"Last Inventory Count : N/A","Last Inventory Count :"& selectedItem.LastCompletedDate)  
                                 Width: =320
                                 Y: |
                                     =0
@@ -568,6 +570,9 @@ InventoryScreen As screen:
                                     
                                 LayoutMinHeight: =320
                                 LayoutMinWidth: =320
+                                OnSelect: |-
+                                    = Set(varSelectedItem,ThisItem);
+                                     Set(varSelectedItemImage,itmImage.Image);
                                 Width: =75
                                 ZIndex: =1
 
@@ -575,10 +580,10 @@ InventoryScreen As screen:
                             AlignInContainer: =AlignInContainer.SetByContainer
                             DropShadow: =DropShadow.Light
                             Height: |
-                                =conProductNameWrapper.Height+conProductDesWrapper.Height+conProductBadgeWrapper.Height+10
+                                =conProductNameWrapper.Height+conProductBadgeWrapper.Height+10
                             LayoutDirection: =LayoutDirection.Vertical
                             LayoutMinHeight: |
-                                =conProductNameWrapper.Height+conProductDesWrapper.Height+conProductBadgeWrapper.Height+10
+                                =conProductNameWrapper.Height+conProductBadgeWrapper.Height+10
                             LayoutMinWidth: =250
                             LayoutMode: =LayoutMode.Auto
                             RadiusBottomLeft: =4
@@ -613,17 +618,10 @@ InventoryScreen As screen:
                                         =(Parent.Height-Self.Height)/2
                                     ZIndex: =1
 
-                            conProductDesWrapper As groupContainer.manualLayoutContainer:
-                                FillPortions: =0
-                                Height: =
-                                LayoutMinHeight: =112
-                                LayoutMinWidth: =250
-                                ZIndex: =2
-
                             conProductBadgeWrapper As groupContainer.manualLayoutContainer:
                                 ContentLanguage: =Parent.Width
                                 FillPortions: =0
-                                Height: =Button3.Height
+                                Height: =lblItemKitName.Height
                                 LayoutMinHeight: =112
                                 LayoutMinWidth: =0
                                 PaddingBottom: =20
@@ -633,31 +631,20 @@ InventoryScreen As screen:
                                     =200
                                 ZIndex: =3
 
-                                Button3 As button:
-                                    BorderColor: =RGBA(0, 134, 208, 1)
-                                    Color: =RGBA(0, 134, 208, 1)
-                                    DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                                lblItemKitName As label:
+                                    Align: =Align.Center
+                                    AutoHeight: =true
+                                    BorderColor: =App.Theme.Colors.Darker40
+                                    Color: =RGBA(0, 0, 0, 1)
                                     DisabledColor: =RGBA(166, 166, 166, 1)
-                                    DisabledFill: =RGBA(244, 244, 244, 1)
-                                    Fill: =RGBA(255, 255, 255, 1)
                                     Font: =App.Theme.Font
-                                    FontWeight: =FontWeight.Semibold
-                                    Height: =20
-                                    HoverBorderColor: =App.Theme.Colors.Darker10
-                                    HoverColor: =RGBA(255, 255, 255, 1)
-                                    HoverFill: =App.Theme.Colors.Darker10
-                                    PressedBorderColor: =App.Theme.Colors.Darker40
-                                    PressedColor: =Self.Color
-                                    PressedFill: =App.Theme.Colors.Darker40
-                                    RadiusBottomLeft: =100
-                                    RadiusBottomRight: =100
-                                    RadiusTopLeft: =100
-                                    RadiusTopRight: =100
-                                    Size: =8
+                                    Height: =lblItemKitName.AutoHeight
+                                    Size: =10
                                     Text: =ThisItem.KitName
-                                    Width: =150
-                                    X: =28
-                                    ZIndex: =2
+                                    Width: |
+                                        =250
+                                    X: =25
+                                    ZIndex: =3
 
                         galItemListActionButtonsWrapper As groupContainer.verticalAutoLayoutContainer:
                             AlignInContainer: =AlignInContainer.SetByContainer
@@ -744,28 +731,7 @@ InventoryScreen As screen:
                                     Align: =Align.Center
                                     BorderColor: =App.Theme.Colors.Darker40
                                     Color: =RGBA(0, 0, 0, 1)
-                                    Default: |-
-                                        =If(
-                                            IsBlank(
-                                                LookUp(
-                                                    previousPatientItems,
-                                                    ItemDescription = ThisItem.ItemDescription
-                                                ).QTY
-                                            ) Or LookUp(
-                                                previousPatientItems,
-                                                ItemDescription = ThisItem.ItemDescription
-                                            ).QTY <= 0,
-                                            ThisItem.QTY,
-                                            If(
-                                                ThisItem.PrevQTY > 0,
-                                                ThisItem.QTY,
-                                                LookUp(
-                                                    previousPatientItems,
-                                                    ItemDescription = ThisItem.ItemDescription
-                                                ).QTY
-                                            )
-                                        )
-                                        //ThisItem.QTY
+                                    Default: =ThisItem.QTY
                                     DisabledBorderColor: =RGBA(166, 166, 166, 1)
                                     DisabledColor: =RGBA(166, 166, 166, 1)
                                     DisabledFill: =RGBA(244, 244, 244, 1)
@@ -1676,6 +1642,94 @@ InventoryScreen As screen:
                 Height: |
                     =Parent.Height-20
                 Image: =varSupplieImage
+                ImagePosition: =ImagePosition.Fill
+                Width: =Parent.Width-20
+                X: =(Parent.Width-Self.Width)/2
+                Y: =(Parent.Height-Self.Height)/2
+                ZIndex: =1
+
+    conItemImageView As groupContainer.verticalAutoLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Fill: =RGBA(0, 0, 0, 0.2)
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Center
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutJustifyContent: =LayoutJustifyContent.Center
+        LayoutMode: =LayoutMode.Auto
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Visible: =If(IsBlank(varSelectedItemImage),false,true)
+        Width: =Parent.Width
+        ZIndex: =5
+
+        Container17_2 As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            DropShadow: =DropShadow.Light
+            Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =0
+            Height: =50
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+            LayoutMinHeight: =112
+            LayoutMinWidth: |
+                =Parent.Width-100
+            LayoutMode: =LayoutMode.Auto
+            Width: |
+                =Parent.Width-100
+            ZIndex: =1
+
+            Label1_2 As label:
+                AutoHeight: =true
+                BorderColor: =App.Theme.Colors.Darker40
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =App.Theme.Font
+                Height: =70
+                LayoutMinHeight: =70
+                LayoutMinWidth: =560
+                PaddingLeft: =10
+                Text: =varSelectedItem.ItemDescription
+                Width: =Parent.Width-Icon2_2.Width
+                ZIndex: =1
+
+            Icon2_2 As icon.Cancel:
+                BorderColor: =App.Theme.Colors.Darker40
+                Color: =App.Theme.Colors.Darker30
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =40
+                Icon: =Icon.Cancel
+                OnSelect: =Set(varSelectedItemImage,Blank());
+                PaddingRight: =10
+                Width: =40
+                ZIndex: =2
+
+        Container16_2 As groupContainer.manualLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            DropShadow: =DropShadow.Light
+            Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =0
+            Height: |
+                =400
+            LayoutMinHeight: =112
+            LayoutMinWidth: =250
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Width: |
+                =Parent.Width-100
+            ZIndex: =2
+
+            Image7_2 As image:
+                BorderColor: =App.Theme.Colors.Darker40
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Height: |
+                    =Parent.Height-20
+                Image: =varSelectedItemImage
                 ImagePosition: =ImagePosition.Fill
                 Width: =Parent.Width-20
                 X: =(Parent.Width-Self.Width)/2
