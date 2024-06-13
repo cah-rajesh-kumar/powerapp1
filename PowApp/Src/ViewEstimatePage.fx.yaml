@@ -1,0 +1,546 @@
+ViewEstimatePage As screen:
+    Height: =Max(App.Height, App.DesignHeight)
+    Width: =Max(App.Width, App.DesignWidth)
+
+    Rectangle1_10 As rectangle:
+        BorderColor: =RGBA(0, 0, 255, 1)
+        DisabledFill: =Rectangle1_10.Fill
+        Fill: =RGBA(56,63,76,1)
+        Height: =88
+        HoverFill: =Rectangle1_10.Fill
+        PressedFill: =Rectangle1_10.Fill
+        TabIndex: =0
+        Width: =640
+        ZIndex: =1
+
+    TextBox1_8 As label:
+        Align: =LayoutAlignItems.Center
+        FontWeight: =FontWeight.Lighter
+        Height: =88
+        HoverBorderColor: =TextBox1_8.BorderColor
+        HoverColor: =TextBox1_8.Color
+        HoverFill: =TextBox1_8.Fill
+        PressedBorderColor: =TextBox1_8.BorderColor
+        PressedColor: =TextBox1_8.Color
+        PressedFill: =TextBox1_8.Fill
+        Size: =24
+        Text: ="Estimate summary"
+        Width: =640
+        ZIndex: =2
+
+    TextBox4_10 As label:
+        Height: =53
+        HoverBorderColor: =TextBox4_10.BorderColor
+        HoverColor: =TextBox4_10.Color
+        HoverFill: =TextBox4_10.Fill
+        PressedBorderColor: =TextBox4_10.BorderColor
+        PressedColor: =TextBox4_10.Color
+        PressedFill: =TextBox4_10.Fill
+        Size: =24
+        Text: =JobsListGallery.Selected.JobName
+        Width: =583.6223091976517
+        X: =22.9491193737769
+        Y: =113.353458481312
+        ZIndex: =3
+
+    TextBox4_11 As label:
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Color: =RGBA(76, 86, 104, 1)
+        FontWeight: =FontWeight.Lighter
+        Height: =70.17796139257399
+        HoverBorderColor: =TextBox4_11.BorderColor
+        HoverColor: =TextBox4_11.Color
+        HoverFill: =TextBox4_11.Fill
+        PressedBorderColor: =TextBox4_11.BorderColor
+        PressedColor: =TextBox4_11.Color
+        PressedFill: =TextBox4_11.Fill
+        Size: =18
+        Text: =JobsListGallery.Selected.Address
+        VerticalAlign: =VerticalAlign.Top
+        Width: =285.7625570776256
+        X: =23.4874429223744
+        Y: =180.4093401947276
+        ZIndex: =4
+
+    TextBox4_18 As label:
+        Color: =RGBA(76, 86, 104, 1)
+        FontWeight: =FontWeight.Lighter
+        Height: =52
+        HoverBorderColor: =TextBox4_18.BorderColor
+        HoverColor: =TextBox4_18.Color
+        HoverFill: =TextBox4_18.Fill
+        PressedBorderColor: =TextBox4_18.BorderColor
+        PressedColor: =TextBox4_18.Color
+        PressedFill: =TextBox4_18.Fill
+        Size: =18
+        Text: =JobsListGallery.Selected.Phone
+        Width: =255
+        X: =23.93023255813954
+        Y: =251.43980462878184
+        ZIndex: =5
+
+    TextBox4_19 As label:
+        Color: =RGBA(76, 86, 104, 1)
+        FontWeight: =FontWeight.Lighter
+        Height: =41.954373013212376
+        HoverBorderColor: =TextBox4_19.BorderColor
+        HoverColor: =TextBox4_19.Color
+        HoverFill: =TextBox4_19.Fill
+        PressedBorderColor: =TextBox4_19.BorderColor
+        PressedColor: =TextBox4_19.Color
+        PressedFill: =TextBox4_19.Fill
+        Size: =18
+        Text: =JobsListGallery.Selected.Email
+        Width: =585.2550554468362
+        X: =23.7449445531638
+        Y: =286.3833943833949
+        ZIndex: =6
+
+    Rectangle3_13 As rectangle:
+        BorderColor: =RGBA(0, 0, 255, 1)
+        DisabledFill: =Rectangle3_13.Fill
+        Fill: =RGBA(211,218,229,1)
+        Height: =2
+        HoverFill: =Rectangle3_13.Fill
+        PressedFill: =Rectangle3_13.Fill
+        TabIndex: =0
+        Width: =640
+        Y: =353.05899970050933
+        ZIndex: =7
+
+    Rectangle3_14 As rectangle:
+        BorderColor: =RGBA(0, 0, 255, 1)
+        DisabledFill: =Rectangle3_14.Fill
+        Fill: =RGBA(211,218,229,1)
+        Height: =2
+        HoverFill: =Rectangle3_14.Fill
+        PressedFill: =Rectangle3_14.Fill
+        TabIndex: =0
+        Width: =640
+        Y: =595.58728293511
+        ZIndex: =8
+
+    TextBox4_20 As label:
+        Color: =RGBA(76,86,104,1)
+        Height: =53
+        HoverBorderColor: =TextBox4_20.BorderColor
+        HoverColor: =TextBox4_20.Color
+        HoverFill: =TextBox4_20.Fill
+        PressedBorderColor: =TextBox4_20.BorderColor
+        PressedColor: =TextBox4_20.Color
+        PressedFill: =TextBox4_20.Fill
+        Size: =16
+        Text: ="Price adjustment"
+        Width: =284.14285714285716
+        X: =23.374038977293093
+        Y: =617.537089884917
+        ZIndex: =9
+
+    TextBox4_21 As label:
+        Color: =RGBA(76,86,104,1)
+        Height: =53
+        HoverBorderColor: =TextBox4_21.BorderColor
+        HoverColor: =TextBox4_21.Color
+        HoverFill: =TextBox4_21.Fill
+        PressedBorderColor: =TextBox4_21.BorderColor
+        PressedColor: =TextBox4_21.Color
+        PressedFill: =TextBox4_21.Fill
+        Size: =16
+        Text: ="Tax"
+        Width: =284.142857142857
+        X: =355.857142857143
+        Y: =617.861414209241
+        ZIndex: =10
+
+    TextInput1_24 As text:
+        BorderColor: =RGBA(211,218,229,1)
+        Default: =JobsListGallery.Selected.Discount
+        DisabledBorderColor: =TextInput1_24.BorderColor
+        DisabledColor: =TextInput1_24.Color
+        DisabledFill: =TextInput1_24.Fill
+        DisplayMode: =If(true,DisplayMode.Disabled,false,DisplayMode.View,DisplayMode.Edit)
+        FocusedBorderThickness: =3
+        Height: =60
+        HoverBorderColor: =TextInput1_24.BorderColor
+        HoverColor: =TextInput1_24.Color
+        HoverFill: =TextInput1_24.Fill
+        PressedBorderColor: =TextInput1_24.HoverBorderColor
+        PressedColor: =TextInput1_24.Color
+        PressedFill: =TextInput1_24.Fill
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =21
+        Width: =156
+        X: =30.951367781155014
+        Y: =668.081491429318
+        ZIndex: =11
+
+    TextInput1_25 As text:
+        BorderColor: =RGBA(211,218,229,1)
+        Default: =JobsListGallery.Selected.Markup
+        DisabledBorderColor: =TextInput1_24.BorderColor
+        DisabledColor: =TextInput1_24.Color
+        DisabledFill: =TextInput1_24.Fill
+        DisplayMode: =If(true,DisplayMode.Disabled,false,DisplayMode.View,DisplayMode.Edit)
+        FocusedBorderThickness: =3
+        Height: =60
+        HoverBorderColor: =TextInput1_24.BorderColor
+        HoverColor: =TextInput1_24.Color
+        HoverFill: =TextInput1_24.Fill
+        PressedBorderColor: =TextInput1_25.HoverBorderColor
+        PressedColor: =TextInput1_25.Color
+        PressedFill: =TextInput1_25.Fill
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =21
+        Width: =156
+        X: =363.1428571428572
+        Y: =668.081491429318
+        ZIndex: =12
+
+    Rectangle3_15 As rectangle:
+        BorderColor: =RGBA(0, 0, 255, 1)
+        DisabledFill: =Rectangle3_15.Fill
+        Fill: =RGBA(211,218,229,1)
+        Height: =2
+        HoverFill: =Rectangle3_15.Fill
+        PressedFill: =Rectangle3_15.Fill
+        TabIndex: =0
+        Width: =640
+        Y: =768.486896834723
+        ZIndex: =13
+
+    TextBox4_22 As label:
+        Color: =RGBA(0,0,0,1)
+        FontWeight: =FontWeight.Semibold
+        Height: =53
+        HoverBorderColor: =TextBox4_22.BorderColor
+        HoverColor: =TextBox4_22.Color
+        HoverFill: =TextBox4_22.Fill
+        PressedBorderColor: =TextBox4_22.BorderColor
+        PressedColor: =TextBox4_22.Color
+        PressedFill: =TextBox4_22.Fill
+        Size: =24
+        Text: ="Estimate total"
+        Width: =376.5577299412911
+        X: =22.442270058708928
+        Y: =793.3304370867351
+        ZIndex: =14
+
+    TextBox4_23 As label:
+        Align: =TextPosition.Right
+        BorderColor: =RGBA(0, 0, 0, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =61
+        HoverBorderColor: =TextBox4_23.BorderColor
+        HoverColor: =TextBox4_23.Color
+        HoverFill: =TextBox4_23.Fill
+        PressedBorderColor: =TextBox4_23.BorderColor
+        PressedColor: =TextBox4_23.Color
+        PressedFill: =TextBox4_23.Fill
+        Size: =24
+        Text: |-
+            =Text(Value(JobsListGallery.Selected.EstimateTotal),"$##,##")
+        VerticalAlign: =VerticalAlign.Top
+        Width: =193
+        X: =424
+        Y: =799.055607899304
+        ZIndex: =15
+
+    Rectangle6_1 As rectangle:
+        BorderColor: =RGBA(0, 0, 255, 1)
+        DisabledFill: =Rectangle6_1.Fill
+        Fill: =RGBA(0,0,0,1)
+        Height: =2
+        HoverFill: =Rectangle6_1.Fill
+        PressedFill: =Rectangle6_1.Fill
+        TabIndex: =0
+        Width: =578
+        X: =31
+        Y: =1030.1497574289521
+        ZIndex: =16
+
+    TextBox6_1 As label:
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Color: =RGBA(76,86,104,1)
+        Height: =45
+        HoverBorderColor: =TextBox6_1.BorderColor
+        HoverColor: =TextBox6_1.Color
+        HoverFill: =TextBox6_1.Fill
+        PressedBorderColor: =TextBox6_1.BorderColor
+        PressedColor: =TextBox6_1.Color
+        PressedFill: =TextBox6_1.Fill
+        Size: =12
+        Text: ="Signature"
+        Width: =560
+        X: =25.825708061002185
+        Y: =1030.155930268462
+        ZIndex: =17
+
+    TextBox10_1 As label:
+        Align: =TextPosition.Right
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Color: =RGBA(76, 86, 104, 1)
+        FontWeight: =FontWeight.Lighter
+        Height: =47.857142857143
+        HoverBorderColor: =TextBox10_1.BorderColor
+        HoverColor: =TextBox10_1.Color
+        HoverFill: =TextBox10_1.Fill
+        PressedBorderColor: =TextBox10_1.BorderColor
+        PressedColor: =TextBox10_1.Color
+        PressedFill: =TextBox10_1.Fill
+        Size: =16
+        Text: |-
+            ="Date: " & DateValue(JobsListGallery.Selected.AppointmentDate)
+        Width: =251
+        X: =365.33730158730156
+        Y: =174.0873015873016
+        ZIndex: =18
+
+    TextBox4_24 As label:
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Height: =70
+        HoverBorderColor: =TextBox4_24.BorderColor
+        HoverColor: =TextBox4_24.Color
+        HoverFill: =TextBox4_24.Fill
+        PaddingLeft: =8
+        PressedBorderColor: =TextBox4_24.BorderColor
+        PressedColor: =TextBox4_24.Color
+        PressedFill: =TextBox4_24.Fill
+        Size: =14
+        Text: ="%"
+        Width: =50
+        X: =188.14285714285717
+        Y: =686.567977915804
+        ZIndex: =19
+
+    TextBox4_25 As label:
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Height: =70
+        HoverBorderColor: =TextBox4_25.BorderColor
+        HoverColor: =TextBox4_25.Color
+        HoverFill: =TextBox4_25.Fill
+        PaddingLeft: =8
+        PressedBorderColor: =TextBox4_25.BorderColor
+        PressedColor: =TextBox4_25.Color
+        PressedFill: =TextBox4_25.Fill
+        Size: =14
+        Text: ="%"
+        Width: =50
+        X: =519.5714285714308
+        Y: =686.567977915804
+        ZIndex: =20
+
+    RoomDetailsGallery As gallery.galleryVertical:
+        '#CopilotOverlayLabel': ="Filtered"
+        DisabledBorderColor: =RoomDetailsGallery.BorderColor
+        DisabledFill: =RoomDetailsGallery.Fill
+        DisplayMode: =If(false,DisplayMode.Disabled,DisplayMode.Edit)
+        Height: =210
+        HoverBorderColor: =RoomDetailsGallery.BorderColor
+        HoverFill: =RoomDetailsGallery.Fill
+        Items: =Filter(Roomscollect, JobId=Text(JobsListGallery.Selected.JobId))
+        Layout: =Layout.Vertical
+        PressedBorderColor: =RoomDetailsGallery.BorderColor
+        PressedFill: =RoomDetailsGallery.Fill
+        ShowScrollbar: =false
+        TemplatePadding: =0
+        TemplateSize: =210
+        Y: =355
+        ZIndex: =21
+
+        TextBox13_1 As label:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Color: =RGBA(76, 86, 104, 1)
+            Height: =50
+            HoverBorderColor: =TextBox13_1.BorderColor
+            HoverColor: =TextBox13_1.Color
+            HoverFill: =TextBox13_1.Fill
+            PressedBorderColor: =TextBox13_1.BorderColor
+            PressedColor: =TextBox13_1.Color
+            PressedFill: =TextBox13_1.Fill
+            Size: =18
+            Text: =ThisItem.FlooringName
+            Width: =560
+            X: =23.3968253968254
+            Y: =68.91176299400506
+            ZIndex: =1
+
+        TextBox14_1 As label:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Height: =50
+            HoverBorderColor: =TextBox14_1.BorderColor
+            HoverColor: =TextBox14_1.Color
+            HoverFill: =TextBox14_1.Fill
+            PressedBorderColor: =TextBox14_1.BorderColor
+            PressedColor: =TextBox14_1.Color
+            PressedFill: =TextBox14_1.Fill
+            Size: =20
+            Text: =ThisItem.RoomName
+            Width: =422
+            X: =22.604704532415365
+            Y: =23.795180722891565
+            ZIndex: =2
+
+        TextBox20_1 As label:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Color: =RGBA(102, 182, 227, 1)
+            DisplayMode: =If(CountRows(Filter(Photoscollect,RoomDetailsGallery.Selected.RoomId=RoomId)) = 0,DisplayMode.Disabled,DisplayMode.Edit)
+            Height: =50
+            HoverBorderColor: =TextBox20_1.BorderColor
+            HoverColor: =TextBox20_1.Color
+            HoverFill: =TextBox20_1.Fill
+            OnSelect: =Navigate(CloseJobImageScreen,ScreenTransition.Fade)
+            PressedBorderColor: =TextBox20_1.BorderColor
+            PressedColor: =TextBox20_1.Color
+            PressedFill: =TextBox20_1.Fill
+            Size: =18
+            Text: ="View photos"
+            Width: =204
+            X: =25.7536231884058
+            Y: =114.02834526511852
+            ZIndex: =3
+
+        Group15 As group:
+            Height: =50.85507246376801
+            Width: =596.0385005065851
+            X: =23.8095238095238
+            Y: =159.144927536232
+            ZIndex: =4
+
+            TextBox15_1 As label:
+                BorderColor: =RGBA(0, 0, 0, 1)
+                Height: =50
+                HoverBorderColor: =TextBox15_1.BorderColor
+                HoverColor: =TextBox15_1.Color
+                HoverFill: =TextBox15_1.Fill
+                PressedBorderColor: =TextBox15_1.BorderColor
+                PressedColor: =TextBox15_1.Color
+                PressedFill: =TextBox15_1.Fill
+                Size: =20
+                Text: =ThisItem.SquareFootage &" sq ft "  & "X $"&LookUp(Floorings,Id = Value(ThisItem.FlooringId),FlooringImagePrice)&"/sq ft" 
+                VerticalAlign: =VerticalAlign.Top
+                Width: =381.1904761904762
+                X: =23.809523809523813
+                Y: =160
+                ZIndex: =5
+
+            TextBox4_26 As label:
+                Align: =TextPosition.Right
+                BorderColor: =RGBA(0, 0, 0, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =50
+                HoverBorderColor: =TextBox4_26.BorderColor
+                HoverColor: =TextBox4_26.Color
+                HoverFill: =TextBox4_26.Fill
+                PressedBorderColor: =TextBox4_26.BorderColor
+                PressedColor: =TextBox4_26.Color
+                PressedFill: =TextBox4_26.Fill
+                Size: =22
+                Text: |-
+                    =If(false,"$0.00",Text(Value(ThisItem.RoomPrice),"$##,##"))
+                VerticalAlign: =VerticalAlign.Top
+                Width: =201.276595744681
+                X: =418.5714285714282
+                Y: =159.1449275362319
+                ZIndex: =6
+
+    Image3 As image:
+        ApplyEXIFOrientation: =false
+        AutoDisableOnSelect: =false
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Height: =250.5
+        HoverBorderColor: =ColorFade(Image3.BorderColor, 20%)
+        HoverFill: =ColorFade(Image3.Fill, 20%)
+        Image: =JobsListGallery.Selected.Signature
+        PressedBorderColor: =ColorFade(Image3.BorderColor, -20%)
+        PressedFill: =ColorFade(Image3.Fill, -20%)
+        TabIndex: =0
+        Width: =578
+        X: =34.5
+        Y: =836.0217391304345
+        ZIndex: =22
+
+    Group12_2 As group:
+        Height: =88
+        Width: =88
+        X: =0
+        Y: =0
+        ZIndex: =23
+
+        Rectangle2_5 As rectangle:
+            BorderColor: =RGBA(0, 0, 255, 1)
+            DisabledFill: =Rectangle2_5.Fill
+            Fill: =RGBA(56,63,76,1)
+            Height: =88
+            HoverFill: =Rectangle2_5.Fill
+            OnSelect: =Navigate(OpenJobsPage, ScreenTransition.Fade)
+            PressedFill: =Rectangle2_5.Fill
+            TabIndex: =0
+            Width: =88
+            ZIndex: =24
+
+        icon4_6 As icon.ChevronLeft:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(56, 56, 56, 1)
+            DisabledFill: =icon4_6.Fill
+            Height: =32
+            HoverBorderColor: =ColorFade(icon4_6.BorderColor, 20%)
+            HoverColor: =ColorFade(icon4_6.Color, 20%)
+            HoverFill: =icon4_6.Fill
+            Icon: =Icon.ChevronLeft
+            OnSelect: =Navigate(OpenJobsPage, ScreenTransition.Fade)
+            PressedBorderColor: =ColorFade(icon4_6.BorderColor, -20%)
+            PressedColor: =ColorFade(icon4_6.Color, -20%)
+            PressedFill: =icon4_6.Fill
+            TabIndex: =0
+            Width: =32
+            X: =28
+            Y: =28
+            ZIndex: =25
+
+    Group14 As group:
+        Height: =88
+        Width: =88
+        X: =552
+        Y: =0
+        ZIndex: =26
+
+        Rectangle2_9 As rectangle:
+            BorderColor: =RGBA(0, 0, 255, 1)
+            DisabledFill: =Rectangle2_9.Fill
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =88
+            HoverFill: =Rectangle2_9.Fill
+            OnSelect: =Navigate(DelCloseEstPage, ScreenTransition.Fade)
+            PressedFill: =Rectangle2_9.Fill
+            TabIndex: =0
+            Width: =88
+            X: =552
+            ZIndex: =27
+
+        icon6_1 As icon.Trash:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(56, 56, 56, 1)
+            DisabledFill: =icon6_1.Fill
+            Height: =36
+            HoverBorderColor: =ColorFade(icon6_1.BorderColor, 20%)
+            HoverColor: =ColorFade(icon6_1.Color, 20%)
+            HoverFill: =icon6_1.Fill
+            Icon: =Icon.Trash
+            OnSelect: =Navigate(DelCloseEstPage, ScreenTransition.Fade)
+            PressedBorderColor: =ColorFade(icon6_1.BorderColor, -20%)
+            PressedColor: =ColorFade(icon6_1.Color, -20%)
+            PressedFill: =icon6_1.Fill
+            TabIndex: =0
+            Width: =36
+            X: =578
+            Y: =26
+            ZIndex: =28
+

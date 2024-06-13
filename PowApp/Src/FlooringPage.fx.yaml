@@ -1,0 +1,189 @@
+FlooringPage As screen:
+    Height: =Max(App.Height, App.DesignHeight)
+    Width: =Max(App.Width, App.DesignWidth)
+
+    Rectangle1_11 As rectangle:
+        BorderColor: =RGBA(0, 0, 255, 1)
+        DisabledFill: =Rectangle1_11.Fill
+        Fill: =RGBA(56,63,76,1)
+        Height: =88
+        HoverFill: =Rectangle1_11.Fill
+        PressedFill: =Rectangle1_11.Fill
+        TabIndex: =0
+        Width: =640
+        ZIndex: =1
+
+    TextBox1_10 As label:
+        Align: =LayoutAlignItems.Center
+        FontWeight: =FontWeight.Lighter
+        Height: =88
+        HoverBorderColor: =TextBox1_10.BorderColor
+        HoverColor: =TextBox1_10.Color
+        HoverFill: =TextBox1_10.Fill
+        PressedBorderColor: =TextBox1_10.BorderColor
+        PressedColor: =TextBox1_10.Color
+        PressedFill: =TextBox1_10.Fill
+        Size: =24
+        Text: ="Select flooring"
+        Width: =464
+        X: =88
+        ZIndex: =2
+
+    Group11_3 As group:
+        Height: =88
+        Width: =88
+        X: =0
+        Y: =0
+        ZIndex: =4
+
+        Rectangle9_3 As rectangle:
+            BorderColor: =RGBA(0, 0, 255, 1)
+            DisabledFill: =Rectangle9_3.Fill
+            Fill: =RGBA(56,63,76,1)
+            Height: =88
+            HoverFill: =Rectangle9_3.Fill
+            OnSelect: =Navigate(RoomPage,ScreenTransition.Fade)
+            PressedFill: =Rectangle9_3.Fill
+            TabIndex: =0
+            Width: =88
+            ZIndex: =5
+
+        icon4_9 As icon.ChevronLeft:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(56, 56, 56, 1)
+            DisabledFill: =icon4_9.Fill
+            Height: =32
+            HoverBorderColor: =ColorFade(icon4_9.BorderColor, 20%)
+            HoverColor: =ColorFade(icon4_9.Color, 20%)
+            HoverFill: =icon4_9.Fill
+            Icon: =Icon.ChevronLeft
+            OnSelect: =Navigate(RoomPage,ScreenTransition.Fade)
+            PressedBorderColor: =ColorFade(icon4_9.BorderColor, -20%)
+            PressedColor: =ColorFade(icon4_9.Color, -20%)
+            PressedFill: =icon4_9.Fill
+            TabIndex: =0
+            Width: =32
+            X: =28
+            Y: =28
+            ZIndex: =6
+
+    Gallery1_1 As gallery.galleryVertical:
+        '#CopilotOverlayLabel': ="Filtered"
+        DisabledBorderColor: =Gallery1_1.BorderColor
+        DisabledFill: =Gallery1_1.Fill
+        Height: =1048
+        HoverBorderColor: =Gallery1_1.BorderColor
+        HoverFill: =Gallery1_1.Fill
+        Items: =FlooringSummary
+        Layout: =Layout.Vertical
+        PressedBorderColor: =Gallery1_1.BorderColor
+        PressedFill: =Gallery1_1.Fill
+        TemplatePadding: =0
+        TemplateSize: =99.5373760953451
+        Y: =88
+        ZIndex: =8
+
+        Rectangle3_17 As rectangle:
+            BorderColor: =RGBA(0, 0, 255, 1)
+            DisabledFill: =Rectangle3_17.Fill
+            Fill: =RGBA(211,218,229,1)
+            Height: =2
+            HoverFill: =Rectangle3_17.Fill
+            PressedFill: =Rectangle3_17.Fill
+            TabIndex: =0
+            Width: =640
+            Y: =96.68610454426131
+            ZIndex: =1
+
+        Group11 As group:
+            Height: =99
+            Width: =640
+            X: =0
+            Y: =0
+            ZIndex: =2
+
+            Rectangle10_5 As rectangle:
+                BorderColor: =RGBA(0, 0, 255, 1)
+                DisabledFill: =Rectangle10_5.Fill
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =99
+                HoverFill: =Rectangle10_5.Fill
+                OnSelect: =Navigate(FlooringDetailPage, ScreenTransition.Fade)
+                PressedFill: =Rectangle10_5.Fill
+                TabIndex: =0
+                Width: =640
+                ZIndex: =3
+
+            icon2_7 As icon.ChevronRight:
+                BorderColor: =RGBA(0, 0, 0, 1)
+                Color: =RGBA(211,218,229,1)
+                DisabledBorderColor: =RGBA(56, 56, 56, 1)
+                DisabledFill: =icon2_7.Fill
+                Height: =32
+                HoverBorderColor: =ColorFade(icon2_7.BorderColor, 20%)
+                HoverColor: =ColorFade(icon2_7.Color, 20%)
+                HoverFill: =icon2_7.Fill
+                Icon: =Icon.ChevronRight
+                OnSelect: =Navigate(FlooringDetailPage, ScreenTransition.Fade)
+                PressedBorderColor: =ColorFade(icon2_7.BorderColor, -20%)
+                PressedColor: =ColorFade(icon2_7.Color, -20%)
+                PressedFill: =icon2_7.Fill
+                TabIndex: =0
+                Width: =32
+                X: =586.840490482787
+                Y: =32.23076923076922
+                ZIndex: =4
+
+            TextBox2_22 As label:
+                Height: =64
+                HoverBorderColor: =TextBox2_22.BorderColor
+                HoverColor: =TextBox2_22.Color
+                HoverFill: =TextBox2_22.Fill
+                OnSelect: =Navigate(FlooringDetailPage, ScreenTransition.Fade)
+                PressedBorderColor: =TextBox2_22.BorderColor
+                PressedColor: =TextBox2_22.Color
+                PressedFill: =TextBox2_22.Fill
+                Size: =22
+                Text: =ThisItem.FlooringCategory
+                Width: =282.9161127029496
+                X: =22.7452061991069
+                ZIndex: =5
+
+            TextBox2_23 As label:
+                BorderColor: =RGBA(0, 0, 0, 1)
+                Color: =RGBA(76, 86, 104, 1)
+                Height: =45.6666666666667
+                HoverBorderColor: =TextBox2_23.BorderColor
+                HoverColor: =TextBox2_23.Color
+                HoverFill: =TextBox2_23.Fill
+                OnSelect: =Navigate(FlooringDetailPage, ScreenTransition.Fade)
+                PressedBorderColor: =TextBox2_23.BorderColor
+                PressedColor: =TextBox2_23.Color
+                PressedFill: =TextBox2_23.Fill
+                Size: =14
+                Text: |-
+                    ="Price range sq ft:"
+                Width: =166.56251915302508
+                X: =23.387902922697382
+                Y: =42.5485290254793
+                ZIndex: =6
+
+            TextBox2_24 As label:
+                BorderColor: =RGBA(0, 0, 0, 1)
+                Color: =RGBA(76, 86, 104, 1)
+                Height: =48
+                HoverBorderColor: =TextBox2_24.BorderColor
+                HoverColor: =TextBox2_24.Color
+                HoverFill: =TextBox2_24.Fill
+                OnSelect: =Navigate(FlooringDetailPage, ScreenTransition.Fade)
+                PressedBorderColor: =TextBox2_24.BorderColor
+                PressedColor: =TextBox2_24.Color
+                PressedFill: =TextBox2_24.Fill
+                Size: =14
+                Text: =ThisItem.FlooringPrice
+                Width: =267.9205590261148
+                X: =182.07944097388528
+                Y: =42.3455603038937
+                ZIndex: =7
+

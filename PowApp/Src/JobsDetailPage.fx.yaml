@@ -1,0 +1,236 @@
+JobsDetailPage As screen:
+    Height: =Max(App.Height, App.DesignHeight)
+    OnVisible: =
+    Width: =Max(App.Width, App.DesignWidth)
+
+    Group12 As group:
+        Height: =88
+        Width: =88
+        X: =0
+        Y: =0
+        ZIndex: =1
+
+        Rectangle2_1 As rectangle:
+            BorderColor: =RGBA(0, 0, 255, 1)
+            DisabledFill: =Rectangle2_1.Fill
+            Fill: =RGBA(56,63,76,1)
+            Height: =88
+            HoverFill: =Rectangle2_1.Fill
+            OnSelect: =Navigate(OpenJobsPage,ScreenTransition.Fade)
+            PressedFill: =Rectangle2_1.Fill
+            TabIndex: =0
+            Width: =88
+            ZIndex: =11
+
+        icon4 As icon.ChevronLeft:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(56, 56, 56, 1)
+            DisabledFill: =icon4.Fill
+            Height: =32
+            HoverBorderColor: =ColorFade(icon4.BorderColor, 20%)
+            HoverColor: =ColorFade(icon4.Color, 20%)
+            HoverFill: =icon4.Fill
+            Icon: =Icon.ChevronLeft
+            OnSelect: =Navigate(OpenJobsPage,ScreenTransition.Fade)
+            PressedBorderColor: =ColorFade(icon4.BorderColor, -20%)
+            PressedColor: =ColorFade(icon4.Color, -20%)
+            PressedFill: =icon4.Fill
+            TabIndex: =0
+            Width: =32
+            X: =28
+            Y: =28
+            ZIndex: =12
+
+    Rectangle1_3 As rectangle:
+        BorderColor: =RGBA(0, 0, 255, 1)
+        DisabledFill: =Rectangle1_3.Fill
+        Fill: =RGBA(56,63,76,1)
+        Height: =88
+        HoverFill: =Rectangle1_3.Fill
+        PressedFill: =Rectangle1_3.Fill
+        TabIndex: =0
+        Width: =640
+        ZIndex: =2
+
+    TextBox1_1 As label:
+        Align: =LayoutAlignItems.Center
+        FontWeight: =FontWeight.Lighter
+        Height: =88
+        HoverBorderColor: =TextBox1_1.BorderColor
+        HoverColor: =TextBox1_1.Color
+        HoverFill: =TextBox1_1.Fill
+        PressedBorderColor: =TextBox1_1.BorderColor
+        PressedColor: =TextBox1_1.Color
+        PressedFill: =TextBox1_1.Fill
+        Size: =24
+        Text: =JobRecord.JobName
+        Width: =464
+        X: =88
+        ZIndex: =3
+
+    TextBox4_1 As label:
+        Color: =RGBA(0, 0, 0, 1)
+        Height: =53.543378995434
+        HoverBorderColor: =TextBox4_1.BorderColor
+        HoverColor: =TextBox4_1.Color
+        HoverFill: =TextBox4_1.Fill
+        PressedBorderColor: =TextBox4_1.BorderColor
+        PressedColor: =TextBox4_1.Color
+        PressedFill: =TextBox4_1.Fill
+        Size: =24
+        Text: =DateValue(JobRecord.AppointmentDate)&" "&TimeValue(JobRecord.AppointmentTime)
+        Width: =347.147111375819
+        X: =23
+        Y: =111.12359550561797
+        ZIndex: =4
+
+    TextBox4_2 As label:
+        Color: =RGBA(76, 86, 104, 1)
+        Height: =53
+        HoverBorderColor: =TextBox4_2.BorderColor
+        HoverColor: =TextBox4_2.Color
+        HoverFill: =TextBox4_2.Fill
+        PressedBorderColor: =TextBox4_2.BorderColor
+        PressedColor: =TextBox4_2.Color
+        PressedFill: =TextBox4_2.Fill
+        Text: =JobRecord.JobName
+        Width: =587.4794520547945
+        X: =23.7705479452055
+        Y: =170.16557825223381
+        ZIndex: =5
+
+    TextBox4_3 As label:
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Color: =RGBA(76, 86, 104, 1)
+        Height: =78.07200561995063
+        HoverBorderColor: =TextBox4_3.BorderColor
+        HoverColor: =TextBox4_3.Color
+        HoverFill: =TextBox4_3.Fill
+        PressedBorderColor: =TextBox4_3.BorderColor
+        PressedColor: =TextBox4_3.Color
+        PressedFill: =TextBox4_3.Fill
+        Size: =18
+        Text: =JobRecord.Address
+        VerticalAlign: =VerticalAlign.Top
+        Width: =323
+        X: =23.396690977689534
+        Y: =207.31804253414194
+        ZIndex: =6
+
+    TextBox4_4 As label:
+        Color: =RGBA(76, 86, 104, 1)
+        Height: =52
+        HoverBorderColor: =TextBox4_4.BorderColor
+        HoverColor: =TextBox4_4.Color
+        HoverFill: =TextBox4_4.Fill
+        PressedBorderColor: =TextBox4_4.BorderColor
+        PressedColor: =TextBox4_4.Color
+        PressedFill: =TextBox4_4.Fill
+        Size: =18
+        Text: =JobRecord.Phone
+        Width: =255
+        X: =23.93023255813954
+        Y: =285.3175600748874
+        ZIndex: =7
+
+    TextBox4_5 As label:
+        Color: =RGBA(76, 86, 104, 1)
+        Height: =46.51133813172402
+        HoverBorderColor: =TextBox4_5.BorderColor
+        HoverColor: =TextBox4_5.Color
+        HoverFill: =TextBox4_5.Fill
+        PressedBorderColor: =TextBox4_5.BorderColor
+        PressedColor: =TextBox4_5.Color
+        PressedFill: =TextBox4_5.Fill
+        Size: =18
+        Text: =JobRecord.Email
+        Width: =497.8264840182648
+        X: =23.820574805264613
+        Y: =323.29678632808543
+        ZIndex: =8
+
+    Button1 As button:
+        AutoDisableOnSelect: =false
+        BorderColor: =ColorFade(Button1.Fill, -15%)
+        BorderThickness: =0
+        DisabledBorderColor: =ColorFade(Button1.BorderColor, 70%)
+        DisplayMode: =If(false,DisplayMode.View,DisplayMode.Edit)
+        Fill: =RGBA(83, 173, 207, 1)
+        Height: =80
+        HoverBorderColor: =ColorFade(Button1.BorderColor, 20%)
+        HoverColor: =Button1.Color
+        HoverFill: =Button1.Fill
+        OnSelect: |
+            =Navigate(RoomPage, ScreenTransition.Fade,{FlooringRecord:Defaults(Floorings)});
+            Clear(CameraPhotos)
+        PressedBorderColor: =Button1.BorderColor
+        PressedColor: =Button1.Color
+        PressedFill: =Button1.Fill
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =24
+        Text: ="Begin CheckList"
+        Width: =640
+        Y: =413.3934298962063
+        ZIndex: =9
+
+    Image1 As image:
+        ApplyEXIFOrientation: =false
+        AutoDisableOnSelect: =false
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Height: =642.757575757576
+        HoverBorderColor: =ColorFade(Image1.BorderColor, 20%)
+        HoverFill: =ColorFade(Image1.Fill, 20%)
+        Image: |-
+            ="https://dev.virtualearth.net/REST/V1/Imagery/Map/Road/"&JobRecord.Address&"?mapLayer=TrafficFlow&key=wg9mvoY3hN6AVoUPutnZ~y8lVN1szjh6d5E8Vs8h48A~AtTHu5h2www6JiWYy5l3eKT8Cfl7SDg4f4jJUiwVL9beAGFEPcLyCe2iBvkF--_9"
+        ImagePosition: =ImagePosition.Fill
+        PressedBorderColor: =ColorFade(Image1.BorderColor, -20%)
+        PressedFill: =ColorFade(Image1.Fill, -20%)
+        TabIndex: =0
+        Width: =640
+        Y: =493
+        ZIndex: =10
+
+    Group13 As group:
+        Height: =88
+        Width: =88
+        X: =552
+        Y: =0
+        ZIndex: =13
+
+        Rectangle2_8 As rectangle:
+            BorderColor: =RGBA(0, 0, 255, 1)
+            DisabledFill: =Rectangle2_8.Fill
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =88
+            HoverFill: =Rectangle2_8.Fill
+            OnSelect: =Navigate(DelOpenEstPage, ScreenTransition.Fade)
+            PressedFill: =Rectangle2_8.Fill
+            TabIndex: =0
+            Width: =88
+            X: =552
+            ZIndex: =14
+
+        icon6 As icon.Trash:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(56, 56, 56, 1)
+            DisabledFill: =icon6.Fill
+            Height: =36
+            HoverBorderColor: =ColorFade(icon6.BorderColor, 20%)
+            HoverColor: =ColorFade(icon6.Color, 20%)
+            HoverFill: =icon6.Fill
+            Icon: =Icon.Trash
+            OnSelect: =Navigate(DelOpenEstPage, ScreenTransition.Fade)
+            PressedBorderColor: =ColorFade(icon6.BorderColor, -20%)
+            PressedColor: =ColorFade(icon6.Color, -20%)
+            PressedFill: =icon6.Fill
+            TabIndex: =0
+            Width: =36
+            X: =578
+            Y: =26
+            ZIndex: =15
+

@@ -1,0 +1,92 @@
+ConfirmationPage_1 As screen:
+    Height: =Max(App.Height, App.DesignHeight)
+    Width: =Max(App.Width, App.DesignWidth)
+
+    Rectangle11_2 As rectangle:
+        BorderColor: =RGBA(0, 0, 255, 1)
+        DisabledFill: =Rectangle11_2.Fill
+        Fill: =RGBA(56,63,76,1)
+        Height: =1136
+        HoverFill: =Rectangle11_2.Fill
+        PressedFill: =Rectangle11_2.Fill
+        TabIndex: =0
+        Width: =640
+        ZIndex: =1
+
+    Group7_2 As group:
+        Height: =392
+        Width: =580
+        X: =30
+        Y: =334
+        ZIndex: =2
+
+        TextBox12_2 As label:
+            Align: =LayoutAlignItems.Center
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =215
+            HoverBorderColor: =TextBox12_2.BorderColor
+            HoverColor: =TextBox12_2.Color
+            HoverFill: =TextBox12_2.Fill
+            PressedBorderColor: =TextBox12_2.BorderColor
+            PressedColor: =TextBox12_2.Color
+            PressedFill: =TextBox12_2.Fill
+            Size: =28
+            Text: ="Are you sure you want to delete this image?"
+            Width: =560
+            X: =40
+            Y: =334
+            ZIndex: =3
+
+        Button3_4 As button:
+            AutoDisableOnSelect: =false
+            BorderColor: =ColorFade(Button3_4.Fill, -15%)
+            DisabledBorderColor: =ColorFade(Button3_4.BorderColor, 70%)
+            DisplayMode: =If(false,DisplayMode.View,DisplayMode.Edit)
+            Fill: =RGBA(83, 173, 207, 1)
+            Height: =80
+            HoverBorderColor: =Button3_4.BorderColor
+            HoverColor: =Button3_4.Color
+            HoverFill: =Button3_4.Fill
+            OnSelect: |-
+                =Remove(CameraPhotos,ImageRecord);
+                Navigate(CameraPage,ScreenTransition.Fade)
+            PressedBorderColor: =Button3_4.Fill
+            PressedColor: =Button3_4.Color
+            PressedFill: =Button3_4.Fill
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =24
+            Text: ="Yes"
+            Width: =580
+            X: =30
+            Y: =534
+            ZIndex: =4
+
+        Button3_5 As button:
+            AutoDisableOnSelect: =false
+            BorderColor: =ColorFade(Button3_5.Fill, -15%)
+            DisabledBorderColor: =ColorFade(Button3_5.BorderColor, 70%)
+            DisplayMode: =If(false,DisplayMode.View,DisplayMode.Edit)
+            Fill: =RGBA(83, 173, 207, .4)
+            Height: =80
+            HoverBorderColor: =Button3_5.BorderColor
+            HoverColor: =Button3_5.Color
+            HoverFill: =Button3_5.Fill
+            OnSelect: =Back()
+            PressedBorderColor: =Button3_5.Fill
+            PressedColor: =Button3_5.Color
+            PressedFill: =Button3_5.Fill
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =24
+            Text: ="No"
+            Width: =580
+            X: =30
+            Y: =646
+            ZIndex: =5
+

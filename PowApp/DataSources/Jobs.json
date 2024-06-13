@@ -1,0 +1,28 @@
+[
+  {
+    "Data": "[{\"Address\":\"4344 150th Ave NE Bldg C, Redmond, WA, 98052\",\"AppointmentDate\":\"Saturday, March 12, 2016\",\"AppointmentTime\":\"10:00 AM\",\"ContactName\":\"Contoso\",\"Discount\":10,\"Email\":\"OliviaG@contoso.com\",\"EstimateTotal\":501,\"JobId\":1,\"JobName\":\"Olivia Gill\",\"Markup\":5,\"Phone\":\"425-555-0103\",\"Signature\":\".\\\\data_images\\\\47ac66e65ca6fd60a5965d6e96982d1f\",\"Type\":\"Open\"},{\"Address\":\"4480 154th Place NE, Redmond, WA, 98052\",\"AppointmentDate\":\"Friday, March 25, 2016\",\"AppointmentTime\":\"12:30 PM\",\"ContactName\":\"Blue Yonder Airlines\",\"Discount\":10,\"Email\":\"DavidV@contoso.com\",\"EstimateTotal\":12335,\"JobId\":2,\"JobName\":\"David Veskovo\",\"Markup\":5,\"Phone\":\"425-555-0105\",\"Signature\":null,\"Type\":\"Open\"},{\"Address\":\"3333 South 120th Place B-3, Tukwila, WA, 98168\",\"AppointmentDate\":\"Tuesday, April 12, 2016\",\"AppointmentTime\":\"3:00 PM\",\"ContactName\":\"Blue Yonder Airlines\",\"Discount\":10,\"Email\":\"Cecelia@blueyonderairlines.com\",\"EstimateTotal\":640756.2,\"JobId\":3,\"JobName\":\"Cecilia Maldonado\",\"Markup\":5,\"Phone\":\"425-555-0115\",\"Signature\":null,\"Type\":\"Open\"},{\"Address\":\"15010 NE 36th Street, Redmond, WA, 98052\",\"AppointmentDate\":\"Monday, April 18, 2016\",\"AppointmentTime\":\"10:00 AM\",\"ContactName\":\"Contoso\",\"Discount\":10,\"Email\":\"MarioG@litware.com\",\"EstimateTotal\":10763,\"JobId\":4,\"JobName\":\"Mario Barden\",\"Markup\":5,\"Phone\":\"425-555-0116\",\"Signature\":null,\"Type\":\"Open\"},{\"Address\":\"14865 NE 36th Street, Redmond, WA, 98052\",\"AppointmentDate\":\"Thursday, April 28, 2016\",\"AppointmentTime\":\"12:30 PM\",\"ContactName\":\"Wayto\",\"Discount\":10,\"Email\":\"BobbieS@litware.com\",\"EstimateTotal\":68234.25,\"JobId\":5,\"JobName\":\"Bobbie Stein\",\"Markup\":5,\"Phone\":\"425-555-0126\",\"Signature\":null,\"Type\":\"Open\"}]",
+    "IsSampleData": false,
+    "IsWritable": false,
+    "Name": "Jobs",
+    "OrderedColumnNames": [
+      "JobId",
+      "JobName",
+      "ContactName",
+      "Phone",
+      "Email",
+      "Address",
+      "AppointmentDate",
+      "AppointmentTime",
+      "Discount",
+      "Markup",
+      "EstimateTotal",
+      "Signature",
+      "Type"
+    ],
+    "OriginalName": "Jobs",
+    "OriginalSchema": "*[Address:s, AppointmentDate:s, AppointmentTime:s, ContactName:s, Discount:n, Email:s, EstimateTotal:n, JobId:n, JobName:s, Markup:n, Phone:s, Signature:s, Type:s]",
+    "Schema": "*[Address:s, AppointmentDate:s, AppointmentTime:s, ContactName:s, Discount:n, Email:s, EstimateTotal:n, JobId:n, JobName:s, Markup:n, Phone:s, Signature:s, Type:s]",
+    "Token": "{6F044138-92A4-44E2-9EFD-FF5794512E21}",
+    "Type": "StaticDataSourceInfo"
+  }
+]

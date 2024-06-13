@@ -1,0 +1,19 @@
+[
+  {
+    "Data": "[]",
+    "IsSampleData": false,
+    "IsWritable": false,
+    "Name": "Photos",
+    "OrderedColumnNames": [
+      "PhotoId",
+      "Photo",
+      "JobId",
+      "RoomId"
+    ],
+    "OriginalName": "Photos",
+    "OriginalSchema": "*[JobId:s, Photo:s, PhotoId:s, RoomId:s]",
+    "Schema": "*[JobId:s, Photo:s, PhotoId:s, RoomId:s]",
+    "Token": "{6F044138-92A4-44E2-9EFD-FF5794512E21}",
+    "Type": "StaticDataSourceInfo"
+  }
+]

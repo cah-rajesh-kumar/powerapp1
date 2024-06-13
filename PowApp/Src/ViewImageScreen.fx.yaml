@@ -1,0 +1,143 @@
+ViewImageScreen As screen:
+    Height: =Max(App.Height, App.DesignHeight)
+    Width: =Max(App.Width, App.DesignWidth)
+
+    Group2_1 As group:
+        Height: =88
+        Width: =88
+        X: =0
+        Y: =0
+        ZIndex: =1
+
+        Rectangle8_1 As rectangle:
+            BorderColor: =RGBA(0, 0, 255, 1)
+            DisabledFill: =Rectangle8_1.Fill
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =88
+            HoverFill: =Rectangle8_1.Fill
+            OnSelect: |-
+                =Navigate(FinishEstimatePage, ScreenTransition.Fade,{NewEstimate:false})
+            PressedFill: =Rectangle8_1.Fill
+            TabIndex: =0
+            Width: =88
+            ZIndex: =5
+
+        Rectangle2_11 As rectangle:
+            BorderColor: =RGBA(0, 0, 255, 1)
+            DisabledFill: =Rectangle2_11.Fill
+            Fill: =RGBA(56,63,76,1)
+            Height: =88
+            HoverFill: =Rectangle2_11.Fill
+            OnSelect: |-
+                =Navigate(FinishEstimatePage, ScreenTransition.Fade,{NewEstimate:false})
+            PressedFill: =Rectangle2_11.Fill
+            TabIndex: =0
+            Width: =88
+            ZIndex: =6
+
+        icon4_10 As icon.ChevronLeft:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(56, 56, 56, 1)
+            DisabledFill: =icon4_10.Fill
+            Height: =32
+            HoverBorderColor: =ColorFade(icon4_10.BorderColor, 20%)
+            HoverColor: =ColorFade(icon4_10.Color, 20%)
+            HoverFill: =icon4_10.Fill
+            Icon: =Icon.ChevronLeft
+            OnSelect: |-
+                =Navigate(FinishEstimatePage, ScreenTransition.Fade,{NewEstimate:false})
+            PressedBorderColor: =ColorFade(icon4_10.BorderColor, -20%)
+            PressedColor: =ColorFade(icon4_10.Color, -20%)
+            PressedFill: =icon4_10.Fill
+            TabIndex: =0
+            Width: =32
+            X: =28
+            Y: =28
+            ZIndex: =7
+
+    Rectangle12 As rectangle:
+        BorderColor: =RGBA(0, 0, 255, 1)
+        DisabledFill: =Rectangle12.Fill
+        Fill: =RGBA(0,0,0,1)
+        Height: =816
+        HoverFill: =Rectangle12.Fill
+        PressedFill: =Rectangle12.Fill
+        TabIndex: =0
+        Width: =640
+        Y: =88
+        ZIndex: =2
+
+    Rectangle1_12 As rectangle:
+        BorderColor: =RGBA(0, 0, 255, 1)
+        DisabledFill: =Rectangle1_12.Fill
+        Fill: =RGBA(56,63,76,1)
+        Height: =88
+        HoverFill: =Rectangle1_12.Fill
+        PressedFill: =Rectangle1_12.Fill
+        TabIndex: =0
+        Width: =640
+        ZIndex: =3
+
+    TextBox1_9 As label:
+        Align: =LayoutAlignItems.Center
+        FontWeight: =FontWeight.Lighter
+        Height: =88
+        HoverBorderColor: =TextBox1_9.BorderColor
+        HoverColor: =TextBox1_9.Color
+        HoverFill: =TextBox1_9.Fill
+        PressedBorderColor: =TextBox1_9.BorderColor
+        PressedColor: =TextBox1_9.Color
+        PressedFill: =TextBox1_9.Fill
+        Size: =24
+        Text: ="Photos"
+        Width: =464
+        X: =88
+        ZIndex: =4
+
+    Image5 As image:
+        ApplyEXIFOrientation: =false
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Height: =816
+        HoverBorderColor: =ColorFade(Image5.BorderColor, 20%)
+        HoverFill: =ColorFade(Image5.Fill, 20%)
+        Image: =Gallery2.Selected.Photo
+        PressedBorderColor: =ColorFade(Image5.BorderColor, -20%)
+        PressedFill: =ColorFade(Image5.Fill, -20%)
+        TabIndex: =0
+        Width: =640
+        Y: =88
+        ZIndex: =8
+
+    Gallery2 As gallery.imageGalleryHorizontal:
+        '#CopilotOverlayLabel': ="Filtered"
+        DisabledBorderColor: =Gallery2.BorderColor
+        DisabledFill: =Gallery2.Fill
+        Height: =178
+        HoverBorderColor: =Gallery2.BorderColor
+        HoverFill: =Gallery2.Fill
+        Items: =CameraPhotos
+        PressedBorderColor: =Gallery2.BorderColor
+        PressedFill: =Gallery2.Fill
+        ShowScrollbar: =false
+        TemplatePadding: =0
+        TemplateSize: =235.52196967529016
+        Width: =582
+        X: =28
+        Y: =934.301587301585
+        ZIndex: =9
+
+        Image6 As image:
+            ApplyEXIFOrientation: =false
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Height: =172
+            HoverBorderColor: =ColorFade(Image6.BorderColor, 20%)
+            HoverFill: =ColorFade(Image6.Fill, 20%)
+            Image: =ThisItem.Photo
+            ImagePosition: =ImagePosition.Fill
+            PressedBorderColor: =ColorFade(Image6.BorderColor, -20%)
+            PressedFill: =ColorFade(Image6.Fill, -20%)
+            TabIndex: =0
+            Width: =208
+            ZIndex: =1
+

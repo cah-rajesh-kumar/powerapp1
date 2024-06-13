@@ -1,0 +1,16 @@
+[
+  {
+    "Data": "[{\"FilterBy\":\"All\"},{\"FilterBy\":\"Open\"},{\"FilterBy\":\"Closed\"}]",
+    "IsSampleData": false,
+    "IsWritable": false,
+    "Name": "Filters",
+    "OrderedColumnNames": [
+      "FilterBy"
+    ],
+    "OriginalName": "Filters",
+    "OriginalSchema": "*[FilterBy:s]",
+    "Schema": "*[FilterBy:s]",
+    "Token": "{6F044138-92A4-44E2-9EFD-FF5794512E21}",
+    "Type": "StaticDataSourceInfo"
+  }
+]

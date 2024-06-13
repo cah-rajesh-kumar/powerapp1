@@ -1,0 +1,49 @@
+ConfirmationPage As screen:
+    Fill: =RGBA(56,63,76,1)
+    Height: =Max(App.Height, App.DesignHeight)
+    Width: =Max(App.Width, App.DesignWidth)
+
+    TextBox7 As label:
+        Align: =LayoutAlignItems.Center
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =162
+        HoverBorderColor: =TextBox7.BorderColor
+        HoverColor: =TextBox7.Color
+        HoverFill: =TextBox7.Fill
+        PressedBorderColor: =TextBox7.BorderColor
+        PressedColor: =TextBox7.Color
+        PressedFill: =TextBox7.Fill
+        Size: =24
+        Text: ="The estimate has been sent"
+        Width: =485
+        X: =77.5
+        Y: =387.6013986013986
+        ZIndex: =1
+
+    Button1_4 As button:
+        AutoDisableOnSelect: =false
+        BorderColor: =ColorFade(Button1_4.Fill, -15%)
+        BorderThickness: =0
+        DisabledBorderColor: =ColorFade(Button1_4.BorderColor, 70%)
+        DisplayMode: =If(false,DisplayMode.View,DisplayMode.Edit)
+        Fill: =RGBA(83, 173, 207, 1)
+        Height: =80
+        HoverBorderColor: =ColorFade(Button1_4.BorderColor, 20%)
+        HoverColor: =Button1_4.Color
+        HoverFill: =Button1_4.Fill
+        OnSelect: =Navigate(OpenJobsPage, ScreenTransition.Fade)
+        PressedBorderColor: =Button1_4.BorderColor
+        PressedColor: =Button1_4.Color
+        PressedFill: =Button1_4.Fill
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =24
+        Text: ="Done"
+        Width: =580
+        X: =30
+        Y: =609.8571428571423
+        ZIndex: =2
+

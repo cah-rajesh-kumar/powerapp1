@@ -1,0 +1,201 @@
+FilterPage As screen:
+    Fill: =RGBA(255, 255, 255, 1)
+    Height: =Max(App.Height, App.DesignHeight)
+    OnVisible: =Clear(EstimateCollect)
+    Width: =Max(App.Width, App.DesignWidth)
+
+    Rectangle1_2 As rectangle:
+        BorderColor: =RGBA(0, 0, 255, 1)
+        DisabledFill: =Rectangle1_2.Fill
+        Fill: =RGBA(56,63,76,1)
+        Height: =88
+        HoverFill: =Rectangle1_2.Fill
+        PressedFill: =Rectangle1_2.Fill
+        TabIndex: =0
+        Width: =640
+        ZIndex: =1
+
+    TextBox1_5 As label:
+        Align: =LayoutAlignItems.Center
+        FontWeight: =FontWeight.Lighter
+        Height: =88
+        HoverBorderColor: =TextBox1_5.BorderColor
+        HoverColor: =TextBox1_5.Color
+        HoverFill: =TextBox1_5.Fill
+        PressedBorderColor: =TextBox1_5.BorderColor
+        PressedColor: =TextBox1_5.Color
+        PressedFill: =TextBox1_5.Fill
+        Size: =24
+        Text: ="Cost estimator"
+        Width: =464
+        X: =88
+        ZIndex: =2
+
+    Group1_1 As group:
+        Height: =88
+        Width: =88
+        X: =552
+        Y: =0
+        ZIndex: =3
+
+        Rectangle2_2 As rectangle:
+            BorderColor: =RGBA(0, 0, 255, 1)
+            DisabledFill: =Rectangle2_2.Fill
+            Fill: =RGBA(56,63,76,1)
+            Height: =88
+            HoverFill: =Rectangle2_2.Fill
+            OnSelect: =Navigate(NewJobPage, ScreenTransition.Fade)
+            PressedFill: =Rectangle2_2.Fill
+            TabIndex: =0
+            Width: =88
+            X: =552
+            ZIndex: =4
+
+        icon1_1 As icon.Add:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(56, 56, 56, 1)
+            DisabledFill: =icon1_1.Fill
+            Height: =40
+            HoverBorderColor: =ColorFade(icon1_1.BorderColor, 20%)
+            HoverColor: =ColorFade(icon1_1.Color, 20%)
+            HoverFill: =icon1_1.Fill
+            Icon: =Icon.Add
+            OnSelect: =Navigate(NewJobPage, ScreenTransition.Fade)
+            PressedBorderColor: =ColorFade(icon1_1.BorderColor, -20%)
+            PressedColor: =ColorFade(icon1_1.Color, -20%)
+            PressedFill: =icon1_1.Fill
+            TabIndex: =0
+            Width: =40
+            X: =576
+            Y: =24
+            ZIndex: =5
+
+    Filter_Gallery As gallery.galleryVertical:
+        '#CopilotOverlayLabel': ="Filtered"
+        Default: =First(Filters)
+        DisabledBorderColor: =Filter_Gallery.BorderColor
+        DisabledFill: =Filter_Gallery.Fill
+        Height: =1048
+        HoverBorderColor: =Filter_Gallery.BorderColor
+        HoverFill: =Filter_Gallery.Fill
+        Items: =Filters
+        Layout: =Layout.Vertical
+        PressedBorderColor: =Filter_Gallery.BorderColor
+        PressedFill: =Filter_Gallery.Fill
+        ShowScrollbar: =false
+        TemplatePadding: =0
+        TemplateSize: =102.51081969397887
+        Y: =88
+        ZIndex: =6
+
+        Rectangle5_1 As rectangle:
+            BorderColor: =RGBA(0, 0, 255, 1)
+            DisabledFill: =Rectangle5_1.Fill
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =102.510819693979
+            HoverFill: =Rectangle5_1.Fill
+            OnSelect: |-
+                =Collect(variables, {selectedFilter : true});
+                Set(type1, Filter_Gallery.Selected.FilterBy);
+                Navigate(OpenJobsPage,ScreenTransition.Fade)
+            PressedFill: =Rectangle5_1.Fill
+            TabIndex: =0
+            Width: =640
+            ZIndex: =1
+
+        icon2_2 As icon.ChevronRight:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Color: =RGBA(211,218,229,1)
+            DisabledBorderColor: =RGBA(56, 56, 56, 1)
+            DisabledFill: =icon2_2.Fill
+            Height: =32
+            HoverBorderColor: =ColorFade(icon2_2.BorderColor, 20%)
+            HoverColor: =ColorFade(icon2_2.Color, 20%)
+            HoverFill: =icon2_2.Fill
+            Icon: =Icon.ChevronRight
+            OnSelect: |-
+                =Set(type1, Filter_Gallery.Selected.FilterBy);
+                Navigate(OpenJobsPage,ScreenTransition.Fade)
+            PressedBorderColor: =ColorFade(icon2_2.BorderColor, -20%)
+            PressedColor: =ColorFade(icon2_2.Color, -20%)
+            PressedFill: =icon2_2.Fill
+            TabIndex: =0
+            Width: =32
+            X: =586.9737905051725
+            Y: =35.2554098469895
+            ZIndex: =2
+
+        Rectangle3_6 As rectangle:
+            BorderColor: =RGBA(0, 0, 255, 1)
+            DisabledFill: =Rectangle3_6.Fill
+            Fill: =RGBA(211,218,229,1)
+            Height: =2
+            HoverFill: =Rectangle3_6.Fill
+            PressedFill: =Rectangle3_6.Fill
+            TabIndex: =0
+            Width: =640
+            Y: =100.51081969397884
+            ZIndex: =3
+
+        TextBox2_9 As label:
+            Color: =If(ThisItem.FilterBy="All", RGBA(76, 86, 104, 1),If(ThisItem.FilterBy="Open", RGBA(255,150,48,1),RGBA(65,171,1,1)))
+            Height: =101
+            HoverBorderColor: =TextBox2_9.BorderColor
+            HoverColor: =TextBox2_9.Color
+            HoverFill: =TextBox2_9.Fill
+            OnSelect: |-
+                =Set(type1, Filter_Gallery.Selected.FilterBy);
+                Navigate(OpenJobsPage,ScreenTransition.Fade)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            PressedBorderColor: =TextBox2_9.BorderColor
+            PressedColor: =TextBox2_9.Color
+            PressedFill: =TextBox2_9.Fill
+            Size: =20
+            Text: =ThisItem.FilterBy
+            Width: =357
+            X: =28.142857142857135
+            ZIndex: =4
+
+    Group12_1 As group:
+        Height: =88
+        Width: =88
+        X: =0
+        Y: =0
+        ZIndex: =7
+
+        Rectangle2_4 As rectangle:
+            BorderColor: =RGBA(0, 0, 255, 1)
+            DisabledFill: =Rectangle2_4.Fill
+            Fill: =RGBA(56,63,76,1)
+            Height: =88
+            HoverFill: =Rectangle2_4.Fill
+            OnSelect: =Navigate(OpenJobsPage,ScreenTransition.Fade)
+            PressedFill: =Rectangle2_4.Fill
+            TabIndex: =0
+            Width: =88
+            ZIndex: =8
+
+        icon4_5 As icon.ChevronLeft:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(56, 56, 56, 1)
+            DisabledFill: =icon4_5.Fill
+            Height: =32
+            HoverBorderColor: =ColorFade(icon4_5.BorderColor, 20%)
+            HoverColor: =ColorFade(icon4_5.Color, 20%)
+            HoverFill: =icon4_5.Fill
+            Icon: =Icon.ChevronLeft
+            OnSelect: =Navigate(OpenJobsPage,ScreenTransition.Fade)
+            PressedBorderColor: =ColorFade(icon4_5.BorderColor, -20%)
+            PressedColor: =ColorFade(icon4_5.Color, -20%)
+            PressedFill: =icon4_5.Fill
+            TabIndex: =0
+            Width: =32
+            X: =28
+            Y: =28
+            ZIndex: =9
+

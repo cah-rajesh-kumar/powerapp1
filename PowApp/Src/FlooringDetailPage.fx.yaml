@@ -1,0 +1,197 @@
+FlooringDetailPage As screen:
+    Height: =Max(App.Height, App.DesignHeight)
+    Width: =Max(App.Width, App.DesignWidth)
+
+    Rectangle1_6 As rectangle:
+        BorderColor: =RGBA(0, 0, 255, 1)
+        DisabledFill: =Rectangle1_6.Fill
+        Fill: =RGBA(56,63,76,1)
+        Height: =88
+        HoverFill: =Rectangle1_6.Fill
+        PressedFill: =Rectangle1_6.Fill
+        TabIndex: =0
+        Width: =640
+        ZIndex: =2
+
+    TextBox1_4 As label:
+        Align: =LayoutAlignItems.Center
+        FontWeight: =FontWeight.Lighter
+        Height: =88
+        HoverBorderColor: =TextBox1_4.BorderColor
+        HoverColor: =TextBox1_4.Color
+        HoverFill: =TextBox1_4.Fill
+        PressedBorderColor: =TextBox1_4.BorderColor
+        PressedColor: =TextBox1_4.Color
+        PressedFill: =TextBox1_4.Fill
+        Size: =24
+        Text: =Gallery1_1.Selected.FlooringCategory
+        Width: =464
+        X: =88
+        ZIndex: =3
+
+    icon4_2 As icon.ChevronLeft:
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledBorderColor: =RGBA(56, 56, 56, 1)
+        DisabledFill: =icon4_2.Fill
+        Height: =32
+        HoverBorderColor: =ColorFade(icon4_2.BorderColor, 20%)
+        HoverColor: =ColorFade(icon4_2.Color, 20%)
+        HoverFill: =icon4_2.Fill
+        Icon: =Icon.ChevronLeft
+        PressedBorderColor: =ColorFade(icon4_2.BorderColor, -20%)
+        PressedColor: =ColorFade(icon4_2.Color, -20%)
+        PressedFill: =icon4_2.Fill
+        TabIndex: =0
+        Width: =32
+        X: =28
+        Y: =28
+        ZIndex: =4
+
+    Floorin_Preview_Gallery As gallery.galleryVertical:
+        '#CopilotOverlayLabel': ="Filtered"
+        DisabledBorderColor: =Floorin_Preview_Gallery.BorderColor
+        DisabledFill: =Floorin_Preview_Gallery.Fill
+        Height: =1048
+        HoverBorderColor: =Floorin_Preview_Gallery.BorderColor
+        HoverFill: =Floorin_Preview_Gallery.Fill
+        Items: =Filter(Floorings,FlooringCategory= Gallery1_1.Selected.FlooringCategory)
+        Layout: =Layout.Vertical
+        PressedBorderColor: =Floorin_Preview_Gallery.BorderColor
+        PressedFill: =Floorin_Preview_Gallery.Fill
+        ShowScrollbar: =false
+        TemplatePadding: =0
+        TemplateSize: =215.89617486338767
+        Y: =88
+        ZIndex: =5
+
+        Group10 As group:
+            Height: =215.896174863388
+            Width: =640
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+            Image2 As image:
+                ApplyEXIFOrientation: =false
+                AutoDisableOnSelect: =false
+                BorderColor: =RGBA(0, 0, 0, 1)
+                Height: =215.896174863388
+                HoverBorderColor: =ColorFade(Image2.BorderColor, 20%)
+                HoverFill: =ColorFade(Image2.Fill, 20%)
+                Image: =ThisItem.Flooring_Images
+                ImagePosition: =ImagePosition.Fill
+                OnSelect: |-
+                    =Navigate(RoomPage, ScreenTransition.Fade,{FlooringRecord:ThisItem,NewRoomId:Text(Max(Roomscollect,Value(RoomId))+1)})
+                PressedBorderColor: =ColorFade(Image2.BorderColor, -20%)
+                PressedFill: =ColorFade(Image2.Fill, -20%)
+                TabIndex: =0
+                Width: =640
+                ZIndex: =2
+
+            Rectangle4 As rectangle:
+                BorderColor: =RGBA(0, 0, 255, 1)
+                DisabledFill: =Rectangle4.Fill
+                Fill: =RGBA(1,1,1,0.5)
+                Height: =67
+                HoverFill: =Rectangle4.Fill
+                OnSelect: |-
+                    =Navigate(RoomPage, ScreenTransition.Fade,{FlooringRecord:ThisItem,NewRoomId:Text(Max(Roomscollect,Value(RoomId))+1)})
+                PressedFill: =Rectangle4.Fill
+                TabIndex: =0
+                Width: =640
+                Y: =148.896174863388
+                ZIndex: =3
+
+            TextBox2_7 As label:
+                Align: =TextPosition.Left
+                BorderColor: =RGBA(0, 0, 0, 1)
+                Color: =RGBA(255, 255, 255, 1)
+                Height: =67.22950819672101
+                HoverBorderColor: =TextBox2_7.BorderColor
+                HoverColor: =TextBox2_7.Color
+                HoverFill: =TextBox2_7.Fill
+                OnSelect: |-
+                    =Navigate(RoomPage, ScreenTransition.Fade,{FlooringRecord:ThisItem,NewRoomId:Text(Max(Roomscollect,Value(RoomId))+1)})
+                PaddingLeft: =25
+                PressedBorderColor: =TextBox2_7.BorderColor
+                PressedColor: =TextBox2_7.Color
+                PressedFill: =TextBox2_7.Fill
+                Size: =20
+                Text: =ThisItem.FlooringName
+                Width: =351.9230769230769
+                X: =1.9533275713051026
+                Y: =148.666666666667
+                ZIndex: =4
+
+            TextBox2_8 As label:
+                Align: =TextPosition.Right
+                BorderColor: =RGBA(0, 0, 0, 1)
+                Color: =RGBA(255, 255, 255, 1)
+                Height: =67.22950819672101
+                HoverBorderColor: =TextBox2_8.BorderColor
+                HoverColor: =TextBox2_8.Color
+                HoverFill: =TextBox2_8.Fill
+                OnSelect: |-
+                    =Navigate(RoomPage, ScreenTransition.Fade,{FlooringRecord:ThisItem,NewRoomId:Text(Max(Roomscollect,Value(RoomId))+1)})
+                PaddingRight: =25
+                PressedBorderColor: =TextBox2_8.BorderColor
+                PressedColor: =TextBox2_8.Color
+                PressedFill: =TextBox2_8.Fill
+                Size: =20
+                Text: =Text(Value(ThisItem.FlooringImagePrice),"$.00") & "/sq ft"
+                Width: =241
+                X: =395.9230769230769
+                Y: =148.666666666667
+                ZIndex: =5
+
+            Circle1 As circle:
+                BorderColor: =RGBA(0, 0, 255, 1)
+                DisabledFill: =Circle1.Fill
+                Fill: =RGBA(255, 255, 255, .7)
+                Height: =111
+                HoverFill: =Circle1.Fill
+                OnSelect: |-
+                    =Navigate(RoomPage, ScreenTransition.Fade,{FlooringRecord:ThisItem,NewRoomId:Text(Max(Roomscollect,Value(RoomId))+1)})
+                PressedFill: =Circle1.Fill
+                TabIndex: =0
+                Visible: =If(ThisItem.IsSelected,true,false)
+                Width: =110
+                X: =264.99999999999954
+                Y: =22.66085338914084
+                ZIndex: =6
+
+            icon7 As icon.Check:
+                BorderColor: =RGBA(0, 0, 0, 1)
+                Color: =RGBA(83, 173, 207, 1)
+                DisabledBorderColor: =RGBA(56, 56, 56, 1)
+                DisabledFill: =icon7.Fill
+                Height: =70
+                HoverBorderColor: =ColorFade(icon7.BorderColor, 20%)
+                HoverColor: =ColorFade(icon7.Color, 20%)
+                HoverFill: =icon7.Fill
+                Icon: =Icon.Check
+                OnSelect: |-
+                    =Navigate(RoomPage, ScreenTransition.Fade,{FlooringRecord:ThisItem,NewRoomId:Text(Max(Roomscollect,Value(RoomId))+1)})
+                PressedBorderColor: =ColorFade(icon7.BorderColor, -20%)
+                PressedColor: =ColorFade(icon7.Color, -20%)
+                PressedFill: =icon7.Fill
+                TabIndex: =0
+                Visible: =If(ThisItem.IsSelected,true,false)
+                Width: =70
+                X: =284.99999999999943
+                Y: =45.78851296360892
+                ZIndex: =7
+
+    Rectangle13 As rectangle:
+        BorderColor: =RGBA(0, 0, 255, 1)
+        DisabledFill: =Rectangle13.Fill
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =88
+        HoverFill: =Rectangle13.Fill
+        OnSelect: =Navigate(FlooringPage,ScreenTransition.Fade)
+        PressedFill: =Rectangle13.Fill
+        TabIndex: =0
+        Width: =88
+        ZIndex: =6
+

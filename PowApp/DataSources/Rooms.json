@@ -1,0 +1,26 @@
+[
+  {
+    "Data": "[]",
+    "IsSampleData": false,
+    "IsWritable": false,
+    "Name": "Rooms",
+    "OrderedColumnNames": [
+      "RoomId",
+      "JobId",
+      "RoomName",
+      "lengthFeet",
+      "LengthInch",
+      "WidthFeet",
+      "WidthInch",
+      "SquareFootage",
+      "FlooringId",
+      "FlooringName",
+      "RoomPrice"
+    ],
+    "OriginalName": "Rooms",
+    "OriginalSchema": "*[FlooringId:s, FlooringName:s, JobId:s, LengthInch:s, RoomId:s, RoomName:s, RoomPrice:s, SquareFootage:s, WidthFeet:s, WidthInch:s, lengthFeet:s]",
+    "Schema": "*[FlooringId:s, FlooringName:s, JobId:s, LengthInch:s, RoomId:s, RoomName:s, RoomPrice:s, SquareFootage:s, WidthFeet:s, WidthInch:s, lengthFeet:s]",
+    "Token": "{6F044138-92A4-44E2-9EFD-FF5794512E21}",
+    "Type": "StaticDataSourceInfo"
+  }
+]
