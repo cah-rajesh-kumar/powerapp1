@@ -1,78 +1,200 @@
 LoadingScreen As screen:
     Fill: =Color.White
     LoadingSpinnerColor: =App.Theme.Colors.Primary
-    OnVisible: |-
+    OnVisible: |
         =//app loading
-        Set(gblAppLoaded,false);
-        Set(gblImagePath,"https://cardinalhealth.sharepoint.com/sites/WM-MDS-Sidecar-Internal-Team/Customer%20Files/ProductImages/Thumbnail/");
-        
-        Set(todayDate,Text(Now(),"m/dd/yyyy"));
-        Set(YesterdayDate,Text(DateAdd(Now(),-1), "m/dd/yyyy"));
-        
-        Set(gblUser, User());
+        Set(
+            gblAppLoaded,
+            false
+        );
+        Set(
+            gblImagePath,
+            "https://cardinalhealth.sharepoint.com/sites/WM-MDS-Sidecar-Internal-Team/Customer%20Files/ProductImages/Thumbnail/"
+        );
+        Set(
+            todayDate,
+            Text(
+                Now(),
+                "m/dd/yyyy"
+            )
+        );
+        Set(
+            YesterdayDate,
+            Text(
+                DateAdd(
+                    Now(),
+                    -1
+                ),
+                "m/dd/yyyy"
+            )
+        );
+        Set(
+            gblUser,
+            User()
+        );
         //Set(todayDate,Month(Now())&"/"&Day(Now())&"/"&Year(Now()));
         //Set(YesterdayDate,Month(DateAdd(Now(),-1))&"/"&Day(DateAdd(Now(),-1))&"/"&Year(DateAdd(Now(),-1)));
-        
         //Set(todayDate,Month(DateAdd(Now(),-1))&"/"&Day(DateAdd(Now(),-1))&"/"&Year(DateAdd(Now(),-1)));
         //Set(YesterdayDate,Month(DateAdd(Now(),-2))&"/"&Day(DateAdd(Now(),-2))&"/"&Year(DateAdd(Now(),-2)));
-        
         Concurrent(
-            Set(varCapuredCamera,Blank()),
-            Set(gblUser, Office365Users.MyProfileV2());
+            Set(
+                varCapuredCamera,
+                Blank()
+            ),
+            Set(
+                gblUser,
+                Office365Users.MyProfileV2()
+            );
             Set(
                 gblParameters,
                 {
-                    source: Coalesce(Param("source"), "portal"),
-                    groupId: Coalesce(Param("groupId"), "00000000-0000-0000-0000-000000000000"),
-                    teamId: Coalesce(Param("teamId"), "19:[team-id]@thread.skype"),
-                    channelId: Coalesce( Param("channelId"), "19:[channel-id]@thread.skype"),
-                    teamName: Coalesce( Param("teamName"), "Team unknown"),
-                    channelName: Coalesce( Param("channelName"), "Channel unknown"),
-                    chatId: Coalesce( Param("chatId"), "19:[chat-id]@thread.skype"),
-        
-                    theme: Coalesce( If(Param("theme") = "{theme}","default",Param("theme")), "default"),
-        
-                    channelType: Coalesce( Param("channelType"), ""),
-                    teamSiteUrl: Coalesce( Param("teamSiteUrl"), ""),
-        
-                    locale: Coalesce( Param("locale"), ""),
-                    entityId: Coalesce( Param("entityId"), ""),
-                    subEntityId: Coalesce( Param("subEntityId"), ""),
-                    
-                    tid: Coalesce( Param("tid"), ""),
-                    isFullScreen: Coalesce( Param("isFullScreen"), ""),
-                    userLicenseType: Coalesce( Param("userLicenseType"), ""),
-                    tenantSKU: Coalesce( Param("tenantSKU"), ""),
-        
+                    source: Coalesce(
+                        Param("source"),
+                        "portal"
+                    ),
+                    groupId: Coalesce(
+                        Param("groupId"),
+                        "00000000-0000-0000-0000-000000000000"
+                    ),
+                    teamId: Coalesce(
+                        Param("teamId"),
+                        "19:[team-id]@thread.skype"
+                    ),
+                    channelId: Coalesce(
+                        Param("channelId"),
+                        "19:[channel-id]@thread.skype"
+                    ),
+                    teamName: Coalesce(
+                        Param("teamName"),
+                        "Team unknown"
+                    ),
+                    channelName: Coalesce(
+                        Param("channelName"),
+                        "Channel unknown"
+                    ),
+                    chatId: Coalesce(
+                        Param("chatId"),
+                        "19:[chat-id]@thread.skype"
+                    ),
+                    theme: Coalesce(
+                        If(
+                            Param("theme") = "{theme}",
+                            "default",
+                            Param("theme")
+                        ),
+                        "default"
+                    ),
+                    channelType: Coalesce(
+                        Param("channelType"),
+                        ""
+                    ),
+                    teamSiteUrl: Coalesce(
+                        Param("teamSiteUrl"),
+                        ""
+                    ),
+                    locale: Coalesce(
+                        Param("locale"),
+                        ""
+                    ),
+                    entityId: Coalesce(
+                        Param("entityId"),
+                        ""
+                    ),
+                    subEntityId: Coalesce(
+                        Param("subEntityId"),
+                        ""
+                    ),
+                    tid: Coalesce(
+                        Param("tid"),
+                        ""
+                    ),
+                    isFullScreen: Coalesce(
+                        Param("isFullScreen"),
+                        ""
+                    ),
+                    userLicenseType: Coalesce(
+                        Param("userLicenseType"),
+                        ""
+                    ),
+                    tenantSKU: Coalesce(
+                        Param("tenantSKU"),
+                        ""
+                    ),
                     isManager: Param("userTeamRole") = "0",
                     isHostClientWeb: Param("hostClientType") = "web"
                 }
-            ), 
+            ),
             Set(
                 gblAppColors,
                 {
-                    pantone: {hex: "#e41f35", rgba: RGBA(228, 31, 53,1)},
-                    white:{hex: "#ffffff", rgba: RGBA(225, 225, 225,1)},
-                    pantoneWarmGray1:{hex: "#efefef", rgba: RGBA(239, 239, 239,0.5)},
-                    pantoneWarmGray7:{hex: "#948a85", rgba: RGBA(148, 138, 133,1)}
+                    pantone: {
+                        hex: "#e41f35",
+                        rgba: RGBA(
+                            228,
+                            31,
+                            53,
+                            1
+                        )
+                    },
+                    white: {
+                        hex: "#ffffff",
+                        rgba: RGBA(
+                            225,
+                            225,
+                            225,
+                            1
+                        )
+                    },
+                    pantoneWarmGray1: {
+                        hex: "#efefef",
+                        rgba: RGBA(
+                            239,
+                            239,
+                            239,
+                            0.5
+                        )
+                    },
+                    pantoneWarmGray7: {
+                        hex: "#948a85",
+                        rgba: RGBA(
+                            148,
+                            138,
+                            133,
+                            1
+                        )
+                    }
                 }
             ),
             Set(
-                gblAppFonts,{
+                gblAppFonts,
+                {
                     small: 8,
                     normal: 11,
                     medium: 15,
                     large: 18,
-                    extralarge: 20 
+                    extralarge: 20
+                }
+            ),
+            Set (
+                gblKitColorCode,
+                {
+                    default: "#EEEEEE",
+                    bag1: "#A6CFE8",
+                    bag2: "#80B8DB",
+                    bag3: "#549ED1",
+                    bag4: "#3F7D98",
+                    others: "#005C78",
+                    diabeticSupplyKit: "#73D19E",
+                    ivPushKit: "#CF70AD",
+                    fiveDayKit: "#F79C59"
                 }
             )
         );
-        
-        
-        
-        
         // finished loading
-        Set(gblAppLoaded,true);
+        Set(
+            gblAppLoaded,
+            true
+        );
 
     Container14 As groupContainer.verticalAutoLayoutContainer:
         DropShadow: =DropShadow.Light
