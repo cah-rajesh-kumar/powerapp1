@@ -40,7 +40,7 @@
     "DatasetName": "https://cardinalhealth.sharepoint.com/sites/WM-MDS-Sidecar-Internal-Team",
     "EncodeDataset": true,
     "IsSampleData": false,
-    "IsWritable": true,
+    "IsWritable": false,
     "Name": "TemplateItemImage",
     "Type": "ConnectedDataSourceInfo"
   }

@@ -583,7 +583,7 @@ InventoryScreen As screen:
                                 =conProductNameWrapper.Height+conProductBadgeWrapper.Height+10
                             LayoutDirection: =LayoutDirection.Vertical
                             LayoutMinHeight: |
-                                =conProductNameWrapper.Height+conProductBadgeWrapper.Height+10
+                                =conProductNameWrapper.LayoutMinHeight+conProductBadgeWrapper.LayoutMinHeight+10
                             LayoutMinWidth: =250
                             LayoutMode: =LayoutMode.Auto
                             RadiusBottomLeft: =4
