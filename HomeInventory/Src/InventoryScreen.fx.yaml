@@ -580,7 +580,7 @@ InventoryScreen As screen:
                             AlignInContainer: =AlignInContainer.SetByContainer
                             DropShadow: =DropShadow.Light
                             Height: |
-                                =conProductNameWrapper.Height+conProductBadgeWrapper.Height+10
+                                =conProductNameWrapper.Height+conProductBadgeWrapper.LayoutMinHeight+10
                             LayoutDirection: =LayoutDirection.Vertical
                             LayoutMinHeight: |
                                 =conProductNameWrapper.LayoutMinHeight+conProductBadgeWrapper.LayoutMinHeight+10
@@ -622,7 +622,7 @@ InventoryScreen As screen:
                                 ContentLanguage: =Parent.Width
                                 FillPortions: =0
                                 Height: =lblItemKitName.Height
-                                LayoutMinHeight: =112
+                                LayoutMinHeight: =lblItemKitName.Height
                                 LayoutMinWidth: =0
                                 PaddingBottom: =20
                                 PaddingLeft: =24
@@ -1339,7 +1339,8 @@ InventoryScreen As screen:
                                                     {
                                                         Title: selectedItem.Title,
                                                         IsDischarged: chkDischarge.Value,
-                                                        DischargeDate: todayDate
+                                                        DischargeDate: todayDate,
+                                                        LastCompletedDate: todayDate
                                                     }
                                                 );
                                                 !IsEmpty(Errors(PatientItems)),
@@ -1377,7 +1378,8 @@ InventoryScreen As screen:
                                                     {
                                                         Title: selectedItem.Title,
                                                         IsDischarged: chkDischarge.Value,
-                                                        DischargeDate: todayDate
+                                                        DischargeDate: todayDate,
+                                                        LastCompletedDate: todayDate
                                                     }
                                                 );
                                                 !IsEmpty(Errors(PatientItems)),
